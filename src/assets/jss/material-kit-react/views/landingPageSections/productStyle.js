@@ -13,7 +13,8 @@ const productStyle = {
     textDecoration: "none"
   },
   description: {
-    color: "#999"
+    color: "#222222",
+    fontSize: "1.3rem"
   }
 };
 

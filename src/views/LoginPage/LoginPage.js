@@ -18,6 +18,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import { Link } from "react-router-dom"
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -138,9 +139,16 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
-                      Get started
-                    </Button>
+                    <Link to={"/profile-page"} className={classes.button}>
+                      <Button simple color="primary" size="lg">
+                        Create Account
+                      </Button>
+                    </Link>
+                    <Link to={"/profile-page"} className={classes.button}>
+                      <Button simple color="primary" size="lg">
+                        Login
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </form>
               </Card>

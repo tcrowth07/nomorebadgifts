@@ -11,15 +11,13 @@ const componentsStyle = {
     fontWeight: "600",
     display: "inline-block",
     position: "relative",
-    background: "#e91e63",
-    padding: "10px"
+    color: "#FFFFFF"
   },
   subtitle: {
     fontSize: "1.313rem",
     maxWidth: "500px",
     margin: "10px 0 0",
-    background: "#000000",
-    padding: "10px"
+    color: "#FFFFFF"
   },
   main: {
     background: "#FFFFFF",
@@ -39,9 +37,6 @@ const componentsStyle = {
     fontSize: "3rem",
     marginRight: "20px",
     color: "#000000"
-  },
-  alignLogin: {
-    marginTop: "20px"
   },
   textCenter: {
     textAlign: "center"
