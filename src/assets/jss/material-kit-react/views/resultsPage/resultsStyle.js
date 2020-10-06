@@ -22,7 +22,7 @@ const productStyle = {
   profile: {
     textAlign: "center",
     "& img": {
-      maxWidth: "160px",
+      maxWidth: "200px",
       width: "100%",
       margin: "0 auto",
       transform: "translate3d(0, -50%, 0)"
@@ -81,7 +81,7 @@ const productStyle = {
   },
   paper: {
     margin: 'auto',
-    maxWidth: 500,
+    maxWidth: 600,
   },
   image: {
     width: 128,

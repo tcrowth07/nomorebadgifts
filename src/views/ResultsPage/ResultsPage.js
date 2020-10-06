@@ -67,7 +67,7 @@ export default function ProfilePage(props) {
     <div>
       <Header
         color="transparent"
-        brand="Material Kit React"
+        brand="NoMoreBad.Gifts"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -198,12 +198,9 @@ export default function ProfilePage(props) {
                                         variant="body2"
                                         style={{ cursor: "pointer" }}
                                       >
-                                        <Button
-                                          href={idea.whereToBuy}
-                                          target="_blank"
-                                        >
-                                          Buy
-                                        </Button>
+                                        <Button color="success">Like</Button>
+                                        <Button color="danger">Dislike</Button>
+                                        <Button>Already Have/Can't Use</Button>
                                       </Typography>
                                     </Grid>
                                   </Grid>
@@ -211,6 +208,12 @@ export default function ProfilePage(props) {
                                     <Typography variant="subtitle1">
                                       {idea.price}
                                     </Typography>
+                                    <Button
+                                      href={idea.whereToBuy}
+                                      target="_blank"
+                                    >
+                                      Buy
+                                    </Button>
                                   </Grid>
                                 </Grid>
                               </Grid>

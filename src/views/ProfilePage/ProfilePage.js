@@ -47,7 +47,7 @@ export default function ProfilePage(props) {
     <div>
       <Header
         color="transparent"
-        brand="Material Kit React"
+        brand="NoMoreBad.Gifts"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{

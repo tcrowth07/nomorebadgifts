@@ -35,7 +35,7 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Material Kit React"
+        brand="NoMoreBad.Gifts"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -75,8 +75,6 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />
-          <TeamSection />
-          <WorkSection />
         </div>
       </div>
       <Footer />
