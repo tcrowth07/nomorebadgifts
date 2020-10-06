@@ -144,7 +144,7 @@ export default function LoginPage(props) {
                         Create Account
                       </Button>
                     </Link>
-                    <Link to={"/profile-page"} className={classes.button}>
+                    <Link to={"/friends-page"} className={classes.button}>
                       <Button simple color="primary" size="lg">
                         Login
                       </Button>

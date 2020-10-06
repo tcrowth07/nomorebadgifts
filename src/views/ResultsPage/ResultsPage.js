@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
-import Favorite from "@material-ui/icons/Favorite";
+
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -145,9 +145,15 @@ export default function ProfilePage(props) {
                             family members.
                           </p>
                           <h3>Share your results!</h3>
-                          <Button>Facebook</Button>
-                          <Button>Twitter</Button>
-                          <Button>Instagram</Button>
+                          <Button justIcon link className={classes.margin5}>
+                            <i className={"fab fa-twitter"} />
+                          </Button>
+                          <Button justIcon link className={classes.margin5}>
+                            <i className={"fab fa-instagram"} />
+                          </Button>
+                          <Button justIcon link className={classes.margin5}>
+                            <i className={"fab fa-facebook"} />
+                          </Button>
                         </>
                       ),
                     },
