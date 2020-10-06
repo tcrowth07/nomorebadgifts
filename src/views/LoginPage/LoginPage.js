@@ -139,7 +139,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Link to={"/profile-page"} className={classes.button}>
+                    <Link to={"/quiz"} className={classes.button}>
                       <Button simple color="primary" size="lg">
                         Create Account
                       </Button>

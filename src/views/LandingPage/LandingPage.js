@@ -58,12 +58,12 @@ export default function LandingPage(props) {
             </GridItem>
             <GridItem md={12} className={classes.alignLogin}>
           <Link to={"/login-page"} className={classes.button}>
-            <Button color="primary" size="lg" round color="warning">
+            <Button size="lg" round color="warning">
               Take the quiz
             </Button>
           </Link>
           <Link to={"/login-page"} className={classes.button}>
-            <Button color="primary" size="lg" round color="warning">
+            <Button size="lg" round color="warning">
               Find someone
             </Button>
           </Link>
