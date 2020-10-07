@@ -93,6 +93,11 @@ const productStyle = {
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  // share: {
+  //   background: "#f95424",
+  //   color: "#000000",
+  //   width: "300px"
+  // }
 };
 
 export default productStyle;

@@ -53,10 +53,10 @@ export default function ProfilePage(props) {
         <div>
           <div className={classes.container}>
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={6}>
+              <GridItem xs={12} sm={12} md={8}>
                 <div className={classes.profile}>
                   <div>
-                    <img src={require("assets/img/quiz.jpg")} alt="..." className={imageClasses} />
+                    <h1>Gift Recieving Type Quiz</h1>
                   </div>
                 </div>
               </GridItem>

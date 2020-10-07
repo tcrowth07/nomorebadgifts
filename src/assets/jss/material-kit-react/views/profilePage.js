@@ -75,7 +75,6 @@ const profilePageStyle = {
     maxWidth: '100%',
     maxHeight: '100%',
   },
-
 };
 
 export default profilePageStyle;

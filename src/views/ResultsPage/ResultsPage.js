@@ -76,7 +76,7 @@ export default function ProfilePage(props) {
         }}
         {...rest}
       />
-      <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+      <Parallax small filter image={require("assets/img/bg4.jpg")} />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
           <div className={classes.container}>
@@ -85,7 +85,7 @@ export default function ProfilePage(props) {
               <GridItem xs={12} sm={12} md={10} className={classes.navWrapper}>
                 <NavPills
                   alignCenter
-                  color="rose"
+                  color="warning"
                   tabs={[
                     {
                       tabButton: "Type",
@@ -144,16 +144,18 @@ export default function ProfilePage(props) {
                             buying gifts for very loyal and close friends and
                             family members.
                           </p>
-                          <h3>Share your results!</h3>
-                          <Button justIcon link className={classes.margin5}>
-                            <i className={"fab fa-twitter"} />
-                          </Button>
-                          <Button justIcon link className={classes.margin5}>
-                            <i className={"fab fa-instagram"} />
-                          </Button>
-                          <Button justIcon link className={classes.margin5}>
-                            <i className={"fab fa-facebook"} />
-                          </Button>
+                          <div className={classes.share}>
+                            <h3>Share your results!</h3>
+                            <Button justIcon link className={classes.margin5}>
+                              <i className={"fab fa-twitter"} />
+                            </Button>
+                            <Button justIcon link className={classes.margin5}>
+                              <i className={"fab fa-instagram"} />
+                            </Button>
+                            <Button justIcon link className={classes.margin5}>
+                              <i className={"fab fa-facebook"} />
+                            </Button>
+                          </div>
                         </>
                       ),
                     },

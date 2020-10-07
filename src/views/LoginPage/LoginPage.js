@@ -55,7 +55,7 @@ export default function LoginPage(props) {
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader color="warning" className={classes.cardHeader}>
                     <h4>Login</h4>
                     <div className={classes.socialLine}>
                       <Button
@@ -140,12 +140,12 @@ export default function LoginPage(props) {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Link to={"/quiz"} className={classes.button}>
-                      <Button simple color="primary" size="lg">
+                      <Button color="warning" size="lg">
                         Create Account
                       </Button>
                     </Link>
                     <Link to={"/friends-page"} className={classes.button}>
-                      <Button simple color="primary" size="lg">
+                      <Button color="warning" size="lg">
                         Login
                       </Button>
                     </Link>

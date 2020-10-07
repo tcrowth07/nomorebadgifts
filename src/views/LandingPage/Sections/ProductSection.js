@@ -3,9 +3,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import ListAlt from "@material-ui/icons/Chat";
-import Search from "@material-ui/icons/VerifiedUser";
-import Redeem from "@material-ui/icons/Fingerprint";
+import ListAlt from "@material-ui/icons/ListAlt";
+import Search from "@material-ui/icons/Search";
+import Redeem from "@material-ui/icons/Redeem";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";

@@ -34,7 +34,8 @@ const productStyle = {
       maxWidth: "160px",
       width: "100%",
       margin: "0 auto",
-      transform: "translate3d(0, -50%, 0)"
+      transform: "translate3d(0, -50%, 0)",
+      padding: "20px 0 20px"
     }
   },
   description: {
