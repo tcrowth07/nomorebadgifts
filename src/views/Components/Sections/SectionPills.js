@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Redeem from "@material-ui/icons/Redeem";
-import Schedule from "@material-ui/icons/Schedule";
 import ListAlt from "@material-ui/icons/ListAlt";
 import Search from "@material-ui/icons/Search";
 

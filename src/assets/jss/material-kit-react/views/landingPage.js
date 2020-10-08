@@ -15,7 +15,7 @@ const landingPageStyle = {
     color: "#FFFFFF",
     textDecoration: "none",
     background: "#24706e",
-    padding: "0px 2px 5px",
+    padding: "0px 5px 5px",
     borderRadius: "10px",
     borderColor: "#000000"
   },

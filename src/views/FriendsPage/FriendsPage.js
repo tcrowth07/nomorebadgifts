@@ -3,18 +3,12 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import NavPills from "components/NavPills/NavPills.js";
 import Parallax from "components/Parallax/Parallax.js";
 
 import Grid from "@material-ui/core/Grid";
@@ -22,7 +16,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
-import styles from "assets/jss/material-kit-react/views/quizPageSections/quizStyle.js";
+import styles from "assets/jss/material-kit-react/views/friendPageSections/friendStyles.js";
 
 import { Link } from "react-router-dom"
 
@@ -31,11 +25,6 @@ const useStyles = makeStyles(styles);
 export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
-  );
 
   const friends = [
     {
@@ -66,15 +55,6 @@ export default function ProfilePage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
           <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                  <div>
-                    <img src={require("assets/img/bg4.jpg")} alt="..." className={imageClasses} />
-                  </div>
-                </div>
-              </GridItem>
-            </GridContainer>
             <h1>Friends</h1>
             {friends.map((friend, id) => (
               <div id={id} className={classes.root}>
