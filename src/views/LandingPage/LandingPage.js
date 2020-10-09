@@ -45,24 +45,24 @@ export default function LandingPage(props) {
       <Parallax image={require("assets/img/bg4.jpg")}>
         <div className={classes.container}>
           <GridContainer>
-            <GridItem>
+            <GridItem md={12} xs={12}>
               <div className={classes.title}>
                 <h1 className={classes.title}>Here to Help You <br/>Give Better Gifts</h1>
                 <h3 className={classes.subtitle}>
                   Gift giving is hard. We make it easy.
                 </h3>
-                <p></p>
+                <br />
               </div>
             </GridItem>
             <GridItem md={12}>
-          <Link to={"/login-page"} className={classes.button}>
+          <Link to={"/quiz"} className={classes.button}>
             <Button size="lg" round color="warning">
               Take the quiz
             </Button>
           </Link>
           <Link to={"/login-page"} className={classes.button}>
             <Button size="lg" round>
-              Find someone
+              View your friends
             </Button>
           </Link>
         </GridItem>

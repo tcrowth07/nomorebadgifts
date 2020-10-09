@@ -36,7 +36,12 @@ export default function ProfilePage(props) {
       userId: 2,
       name: "Another dude",
       img: "assets/img/faces/christian.jpg"
-    }
+    },
+    {
+      userId: 3,
+      name: "Yet another dude",
+      img: "assets/img/faces/christian.jpg"
+    },
   ]
   return (
     <div>
@@ -65,7 +70,7 @@ export default function ProfilePage(props) {
                       <img
                         className={classes.img}
                         alt="profile"
-                        src={friend.img}
+                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                       />
                     </ButtonBase>
                   </Grid>

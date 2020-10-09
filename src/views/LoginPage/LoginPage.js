@@ -87,7 +87,7 @@ export default function LoginPage(props) {
                       </Button>
                     </div>
                   </CardHeader>
-                  <p className={classes.divider}>Or Be Classical</p>
+                  <p className={classes.divider}>Or use your email</p>
                   <CardBody>
                     <CustomInput
                       labelText="First Name..."
@@ -106,6 +106,7 @@ export default function LoginPage(props) {
                     />
                     <CustomInput
                       labelText="Email..."
+                      defaultValue="bob@example.com"
                       id="email"
                       formControlProps={{
                         fullWidth: true
@@ -139,14 +140,14 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Link to={"/quiz"} className={classes.button}>
-                      <Button color="warning" size="lg">
-                        Create Account
-                      </Button>
-                    </Link>
                     <Link to={"/friends-page"} className={classes.button}>
                       <Button color="warning" size="lg">
                         Login
+                      </Button>
+                    </Link>
+                    <Link to={"/friends-page"} className={classes.button}>
+                      <Button color="" size="lg">
+                        Create Account
                       </Button>
                     </Link>
                   </CardFooter>

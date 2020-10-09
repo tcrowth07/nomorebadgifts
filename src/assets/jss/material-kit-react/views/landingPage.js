@@ -10,14 +10,15 @@ const landingPageStyle = {
     ...title,
     display: "inline-block",
     position: "relative",
-    marginTop: "30px",
+    marginTop: "40px",
     minHeight: "32px",
     color: "#FFFFFF",
     textDecoration: "none",
     background: "#24706e",
     padding: "0px 5px 5px",
     borderRadius: "10px",
-    borderColor: "#000000"
+    borderColor: "#000000",
+    fontSize: "2.5rem",
   },
   subtitle: {
     fontSize: "1.313rem",
@@ -40,7 +41,7 @@ const landingPageStyle = {
   },
   button: {
     margin: "0 10px 0",
-    fontSize: "2rem"
+    fontSize: "2rem",
   }
 };
 

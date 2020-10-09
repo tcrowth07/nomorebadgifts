@@ -83,7 +83,7 @@ export default function ProfilePage(props) {
         }}
         {...rest}
       />
-      <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+      <Parallax small filter image={require("assets/img/bg4.jpg")} />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
           <div className={classes.container}>
@@ -113,7 +113,7 @@ export default function ProfilePage(props) {
               <GridItem xs={12} sm={12} md={10} className={classes.navWrapper}>
                 <NavPills
                   alignCenter
-                  color="rose"
+                  color="warning"
                   tabs={[
                     {
                       tabButton: "Type",
