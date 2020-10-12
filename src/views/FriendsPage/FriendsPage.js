@@ -22,7 +22,7 @@ import { Link } from "react-router-dom"
 
 const useStyles = makeStyles(styles);
 
-export default function ProfilePage(props) {
+export default function FriendsPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 

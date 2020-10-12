@@ -26,7 +26,7 @@ import styles from "assets/jss/material-kit-react/views/resultsPage/resultsStyle
 
 const useStyles = makeStyles(styles);
 
-export default function ProfilePage(props) {
+export default function ResultsPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
@@ -95,7 +95,10 @@ export default function ProfilePage(props) {
                           <h2>
                             You're gift recieving type is <b>INTP</b>
                           </h2>
-                          <img src={require("assets/img/intp.png")} />
+                          <img
+                            alt="gift giving type"
+                            src={require("assets/img/intp.png")}
+                          />
                           <p className={classes.typeDescription}>
                             INTPs have extremely eclectic taste when it comes to
                             gifts. They aren’t as easy to pin down as some types

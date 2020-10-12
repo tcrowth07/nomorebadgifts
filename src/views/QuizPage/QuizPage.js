@@ -19,7 +19,7 @@ import QuestionBox from "./Sections/QuestionBox"
 
 const useStyles = makeStyles(styles);
 
-export default function ProfilePage(props) {
+export default function QuizPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 

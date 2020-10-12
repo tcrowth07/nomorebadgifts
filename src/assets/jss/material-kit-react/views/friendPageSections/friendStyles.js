@@ -12,11 +12,16 @@ const productStyle = {
     marginBottom: "1rem",
     marginTop: "30px",
     minHeight: "32px",
-    textDecoration: "none"
+    textDecoration: "none",
+    display: "inline-block",
+    position: "relative"
   },
   description: {
-    color: "#222222",
-    fontSize: "1.3rem"
+    fontSize: "1.3rem",
+    margin: "1.071rem auto 0",
+    maxWidth: "600px",
+    color: "#999",
+    textAlign: "center !important"
   },
   questionBox: {
     textAlign: "center",
@@ -38,12 +43,6 @@ const productStyle = {
       padding: "20px 0 20px"
     }
   },
-  description: {
-    margin: "1.071rem auto 0",
-    maxWidth: "600px",
-    color: "#999",
-    textAlign: "center !important"
-  },
   name: {
     marginTop: "-80px"
   },
@@ -58,14 +57,6 @@ const productStyle = {
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
-  },
-  title: {
-    ...title,
-    display: "inline-block",
-    position: "relative",
-    marginTop: "30px",
-    minHeight: "32px",
-    textDecoration: "none"
   },
   socials: {
     marginTop: "0",

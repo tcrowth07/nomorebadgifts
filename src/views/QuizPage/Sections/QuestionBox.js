@@ -8,11 +8,10 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/quizPageSections/quizStyle.js";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
-export default function ProductSection() {
+export default function QuestionBox() {
   const classes = useStyles();
 
   const questions = [
@@ -41,32 +40,26 @@ export default function ProductSection() {
   ];
 
   const [arrayOfAnswers, setArrayOfAnswers] = React.useState([]);
-  const [Position1, setPosition1] = React.useState(0);
-  const [Position2, setPosition2] = React.useState(0);
-  const [Position3, setPosition3] = React.useState(0);
-  const [Position4, setPosition4] = React.useState(0);
-  const [Position5, setPosition5] = React.useState(0);
+  const [random, setRandom] = React.useState(0);
+  const [random2, setRandom2] = React.useState(0);
 
   function enable(questionNumber, answer) {
-    console.log("QuestionNumber: " + questionNumber);
-    console.log("Answer: " + answer);
     
     arrayOfAnswers[questionNumber] = answer
     setArrayOfAnswers(arrayOfAnswers)
 
-    setPosition1(arrayOfAnswers[0])
-    setPosition2(arrayOfAnswers[1])
-    setPosition3(arrayOfAnswers[2])
-    setPosition4(arrayOfAnswers[3])
-    setPosition5(arrayOfAnswers[4])
-
-    console.log(arrayOfAnswers)
+    //I have no idea why I need this, but it doesn't work without it
+    setRandom(answer)
+    setRandom2(questionNumber)
+    console.log("arrayOfAnswers", arrayOfAnswers)
+    console.log("random", random)
+    console.log("random2", random2)
   }
 
   return (
     <div className={classes.section}>
       {Object.values(questions).map((question, id) => (
-        <div className={classes.questionBox}>
+        <div id={id} className={classes.questionBox}>
           <hr />
           <h2>{question.text}</h2>
           <br />
@@ -78,7 +71,7 @@ export default function ProductSection() {
                 onClick={() => {
                   enable(id, 1);
                 }}
-                color={arrayOfAnswers[id] === 1 ? "success" : "grey"}
+                color={arrayOfAnswers[id] === 1 ? "success" : "github"}
               >
                 Not at all
               </Button>
@@ -89,7 +82,7 @@ export default function ProductSection() {
                 onClick={() => {
                   enable(id, 2);
                 }}
-                color={arrayOfAnswers[id] === 2 ? "success" : "grey"}
+                color={arrayOfAnswers[id] === 2 ? "success" : "github"}
               >
                 A Little
               </Button>
@@ -100,7 +93,7 @@ export default function ProductSection() {
                 onClick={() => {
                   enable(id, 3);
                 }}
-                color={arrayOfAnswers[id] === 3 ? "success" : "grey"}
+                color={arrayOfAnswers[id] === 3 ? "success" : "github"}
               >
                 Neutral
               </Button>
@@ -111,7 +104,7 @@ export default function ProductSection() {
                 onClick={() => {
                   enable(id, 4);
                 }}
-                color={arrayOfAnswers[id] === 4 ? "success" : "grey"}
+                color={arrayOfAnswers[id] === 4 ? "success" : "github"}
               >
                 Somewhat
               </Button>
@@ -122,7 +115,7 @@ export default function ProductSection() {
                 onClick={() => {
                   enable(id, 5);
                 }}
-                color={arrayOfAnswers[id] === 5 ? "success" : "grey"}
+                color={arrayOfAnswers[id] === 5 ? "success" : "github"}
               >
                 Very Much
               </Button>

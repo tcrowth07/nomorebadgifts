@@ -35,7 +35,7 @@ export default function ProfilePage(props) {
     classes.imgRoundedCircle,
     classes.imgFluid
   );
-  
+
   const giftIdeas = [
     {
       id: 1,
@@ -79,7 +79,7 @@ export default function ProfilePage(props) {
         fixed
         changeColorOnScroll={{
           height: 200,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />
@@ -95,7 +95,7 @@ export default function ProfilePage(props) {
                   </div>
                   <div className={classes.name}>
                     <h3 className={classes.title}>Christian Louboutin</h3>
-                    <h6></h6>
+                    <br />
                     <Button justIcon link className={classes.margin5}>
                       <i className={"fab fa-twitter"} />
                     </Button>
@@ -123,7 +123,10 @@ export default function ProfilePage(props) {
                           <h2>
                             Christian's recieving type is <b>INTP</b>
                           </h2>
-                          <img src={require("assets/img/intp.png")} />
+                          <img
+                            alt="gift giving type"
+                            src={require("assets/img/intp.png")}
+                          />
                           <p className={classes.typeDescription}>
                             INTPs have extremely eclectic taste when it comes to
                             gifts. They aren’t as easy to pin down as some types
@@ -179,8 +182,8 @@ export default function ProfilePage(props) {
                       tabButton: "Gift Ideas",
                       tabIcon: EmojiObjectsIcon,
                       tabContent: giftIdeas.map((idea, id) => (
-                        <>
-                          <div id={id} className={classes.root}>
+                        <div id={id}>
+                          <div className={classes.root}>
                             <Paper className={classes.paper}>
                               <Grid container spacing={2}>
                                 <Grid item>
@@ -221,8 +224,7 @@ export default function ProfilePage(props) {
                                       <Typography
                                         variant="body2"
                                         style={{ cursor: "pointer" }}
-                                      >
-                                      </Typography>
+                                      ></Typography>
                                     </Grid>
                                   </Grid>
                                   <Grid item>
@@ -240,7 +242,7 @@ export default function ProfilePage(props) {
                               </Grid>
                             </Paper>
                           </div>
-                        </>
+                        </div>
                       )),
                     },
                   ]}

@@ -15,7 +15,7 @@ import styles from "assets/jss/material-kit-react/views/quizPageSections/quizSty
 
 const useStyles = makeStyles(styles);
 
-export default function ProductSection() {
+export default function QuizHeader() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
