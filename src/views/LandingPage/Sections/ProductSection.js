@@ -35,6 +35,7 @@ export default function ProductSection() {
         </GridItem>
       </GridContainer>
       <div>
+        <h2 className={classes.title}>How it works</h2>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea

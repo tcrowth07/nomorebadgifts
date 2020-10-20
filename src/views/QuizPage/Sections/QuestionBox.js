@@ -7,6 +7,8 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 
+import { Link } from "react-router-dom"
+
 import styles from "assets/jss/material-kit-react/views/quizPageSections/quizStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -125,11 +127,11 @@ export default function QuestionBox() {
           <hr />
         </div>
       ))}
-      {/* <Link to={"/results-page"} className={classes.button}> */}
-        <Button href="/results-page" className={classes.finish} color="warning">
+      <Link to={"/results-page"} className={classes.button}>
+        <Button className={classes.finish} color="warning">
           Finish
         </Button>
-      {/* </Link> */}
+      </Link>
     </div>
   );
 }
