@@ -219,12 +219,6 @@ export default function ResultsPage(props) {
                                     <Typography variant="subtitle1">
                                       {idea.price}
                                     </Typography>
-                                    <Button
-                                      href={idea.whereToBuy}
-                                      target="_blank"
-                                    >
-                                      Buy
-                                    </Button>
                                   </Grid>
                                 </Grid>
                               </Grid>

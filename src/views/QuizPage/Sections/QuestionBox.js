@@ -67,7 +67,7 @@ export default function QuestionBox() {
           <br />
           <GridContainer>
             <GridItem xs={1} sm={1} md={1}></GridItem>
-            <GridItem xs={2} sm={2} md={2}>
+            <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-1"}
                 onClick={() => {
@@ -78,7 +78,7 @@ export default function QuestionBox() {
                 Not at all
               </Button>
             </GridItem>
-            <GridItem xs={2} sm={2} md={2}>
+            <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-2"}
                 onClick={() => {
@@ -89,7 +89,7 @@ export default function QuestionBox() {
                 A Little
               </Button>
             </GridItem>
-            <GridItem xs={2} sm={2} md={2}>
+            <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-3"}
                 onClick={() => {
@@ -100,7 +100,7 @@ export default function QuestionBox() {
                 Neutral
               </Button>
             </GridItem>
-            <GridItem xs={2} sm={2} md={2}>
+            <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-4"}
                 onClick={() => {
@@ -111,7 +111,7 @@ export default function QuestionBox() {
                 Somewhat
               </Button>
             </GridItem>
-            <GridItem xs={2} sm={2} md={2}>
+            <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-5"}
                 onClick={() => {

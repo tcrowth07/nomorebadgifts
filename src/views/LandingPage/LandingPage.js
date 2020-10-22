@@ -38,7 +38,7 @@ export default function LandingPage(props) {
         fixed
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "black",
         }}
         {...rest}
       />
@@ -47,25 +47,28 @@ export default function LandingPage(props) {
           <GridContainer>
             <GridItem md={12} xs={12}>
               <div className={classes.title}>
-                <h1 className={classes.title}>Here to Help You <br/>Give Better Gifts</h1>
+                <h1 className={classes.title}>
+                  Here to Help You <br />
+                  Give Better Gifts
+                </h1>
                 <h3 className={classes.subtitle}>
                   Gift giving is hard. We make it easy.
                 </h3>
                 <br />
               </div>
             </GridItem>
-            <GridItem md={12}>
-          <Link to={"/quiz"} className={classes.button}>
-            <Button size="lg" round color="warning">
-              Take the quiz
-            </Button>
-          </Link>
-          <Link to={"/login-page"} className={classes.button}>
-            <Button size="lg" round>
-              View your friends
-            </Button>
-          </Link>
-        </GridItem>
+            <GridItem md={12} xs={6}>
+              <Link to={"/quiz"} className={classes.button}>
+                <Button size="lg" round color="warning">
+                  Take the quiz
+                </Button>
+              </Link>
+              <Link to={"/login-page"} className={classes.button}>
+                <Button size="lg" round>
+                  View your friends
+                </Button>
+              </Link>
+            </GridItem>
           </GridContainer>
         </div>
       </Parallax>
