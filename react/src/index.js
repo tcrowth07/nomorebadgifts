@@ -14,6 +14,7 @@ import LoginPage from "views/LoginPage/LoginPage.js";
 import QuizPage from "views/QuizPage/QuizPage.js";
 import ResultsPage from "views/ResultsPage/ResultsPage.js";
 import FriendsPage from "views/FriendsPage/FriendsPage.js";
+import AdminPage from "views/Admin/admin.js"
 
 var hist = createBrowserHistory();
 
@@ -35,6 +36,7 @@ ReactDOM.render(
         <Route path="/profile-page" component={ProfilePage} />
         <Route path="/login-page" component={LoginPage} />
         <Route path="/components" component={Components} />
+        <Route path="/admin" component={AdminPage} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </Router>,

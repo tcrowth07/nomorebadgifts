@@ -10,6 +10,7 @@
     "axios": "^0.20.0",
     "axios-hooks": "^2.1.0",
     "classnames": "2.2.6",
+    "formik": "^2.2.1",
     "history": "4.10.1",
     "material-ui": "^0.20.2",
     "moment": "2.26.0",
@@ -22,7 +23,8 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "^3.4.3",
     "react-slick": "0.26.1",
-    "react-swipeable-views": "0.13.9"
+    "react-swipeable-views": "0.13.9",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@babel/cli": "7.10.1",

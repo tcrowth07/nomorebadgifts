@@ -49,7 +49,7 @@ export default function Footer(props) {
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="/feedback"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScnfcumVQNOlDOv3ZjgU7S_7e4vwcr3P-NxvQVzZP3xpZC1bg/viewform?usp=sf_link"
                 className={classes.block}
               >
                 Feedback

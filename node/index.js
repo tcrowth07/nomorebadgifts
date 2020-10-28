@@ -13,7 +13,7 @@ mongoose.connect(DBUri, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err) => console.log(err))
     
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -23,24 +23,6 @@ app.use("/questions", questionsRoutes)
 app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`)
 );
-
-//testing
-app.get("/addQuestion", (req, res) => {
-    const question = new Question({
-        questionNumber: 4,
-        text: "You regularly stand up for your beliefs when they are challenged",
-        category: "EI"
-    });
-    question.save()
-        .then((result) => {
-            console.log("Added question to DB")
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-})
-
 
 
 app.get("/", (req, res) => {

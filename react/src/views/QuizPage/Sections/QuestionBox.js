@@ -24,7 +24,7 @@ export default function QuestionBox() {
 
   const url = "http://localhost:5000/questions"
 
-  let [{questions, loading, error, response}, refetch] = useAxios(url)
+  let [{questions, loading, error, response}] = useAxios(url)
 
   if (loading) return <h5>Loading...</h5>;
   if (error) return <h5 style={{color:"red"}}>There was an error loading the quiz</h5>;
@@ -33,7 +33,6 @@ export default function QuestionBox() {
     questions = response.data
   }
 
-  console.log(questions)
   function enable(questionNumber, answer) {
     
     arrayOfAnswers[questionNumber] = answer
