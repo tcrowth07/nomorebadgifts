@@ -1,5 +1,5 @@
 import express from 'express';
-import Question from '../models/questions.js'
+import Question from '../models/questionsModel.js'
 import cors from 'cors'
 
 const router = express.Router();
