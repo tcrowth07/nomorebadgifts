@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import mongoose from 'mongoose'
 import cors from 'cors'
 import 'dotenv/config.js'
-import path from 'path'
 
 import questionsRoutes from './routes/questions.js'
 

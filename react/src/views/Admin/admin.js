@@ -29,7 +29,7 @@ export default function QuizPage(props) {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const urlGetQuestions = "http://localhost:5000/questions";
+  const urlGetQuestions = "https://nomorebadgifts.herokuapp.com/questions";
     const GetQuestions = () => {
         axios.get(urlGetQuestions)
           .then(resp => {
@@ -120,7 +120,7 @@ export default function QuizPage(props) {
                     console.log("onSubmit", values);
                     const results = await axios({
                       method: "post",
-                      url: "http://localhost:5000/questions",
+                      url: "/questions",
                       data: {
                         questionNumber: values.questionNumber,
                         text: values.text,

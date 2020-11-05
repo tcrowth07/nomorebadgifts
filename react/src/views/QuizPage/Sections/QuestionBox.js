@@ -22,7 +22,7 @@ export default function QuestionBox() {
   const [random, setRandom] = React.useState(0);
   const [random2, setRandom2] = React.useState(0);
 
-  const url = "http://localhost:5000/questions"
+  const url = "/questions"
 
   let [{questions, loading, error, response}] = useAxios(url)
 
