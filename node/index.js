@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from 'mongoose'
 import cors from 'cors'
 import 'dotenv/config.js'
+import path from 'path'
 
 import questionsRoutes from './routes/questions.js'
 
@@ -22,10 +23,3 @@ app.use("/questions", questionsRoutes)
 app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`)
 );
-
-
-app.get("/", (req, res) => {
-  console.log("Get: Homepage");
-
-  res.send("Home");
-});
