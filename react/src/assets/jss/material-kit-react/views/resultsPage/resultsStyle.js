@@ -64,7 +64,8 @@ const productStyle = {
     textAlign: "center"
   },
   typeDescription: {
-    fontSize: "1rem"
+    fontSize: "1rem",
+    whiteSpace: "pre-wrap"
   },
   root: {
     flexGrow: 1,

@@ -7,11 +7,11 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import styles from "assets/jss/material-kit-react/views/quizPageSections/quizStyle.js";
 
-import useAxios from "axios-hooks"
+import useAxios from "axios-hooks";
 
 const useStyles = makeStyles(styles);
 
@@ -22,28 +22,30 @@ export default function QuestionBox() {
   const [random, setRandom] = React.useState(0);
   const [random2, setRandom2] = React.useState(0);
 
-  const url = "/questions"
+  const url = "https://nomorebadgifts.herokuapp.com/questions";
 
-  let [{questions, loading, error, response}] = useAxios(url)
+  let [{ questions, loading, error, response }] = useAxios(url);
 
   if (loading) return <h5>Loading...</h5>;
-  if (error) return <h5 style={{color:"red"}}>There was an error loading the quiz</h5>;
+  if (error)
+    return (
+      <h5 style={{ color: "red" }}>There was an error loading the quiz</h5>
+    );
 
   if (response.data) {
-    questions = response.data
+    questions = response.data;
   }
 
   function enable(questionNumber, answer) {
-    
-    arrayOfAnswers[questionNumber] = answer
-    setArrayOfAnswers(arrayOfAnswers)
+    arrayOfAnswers[questionNumber] = answer;
+    setArrayOfAnswers(arrayOfAnswers);
 
     //I have no idea why I need this, but it doesn't work without it
-    setRandom(answer)
-    setRandom2(questionNumber)
-    console.log("arrayOfAnswers", arrayOfAnswers)
-    console.log("random", random)
-    console.log("random2", random2)
+    setRandom(answer);
+    setRandom2(questionNumber);
+    console.log("arrayOfAnswers", arrayOfAnswers);
+    console.log("random", random);
+    console.log("random2", random2);
   }
 
   return (
@@ -54,7 +56,7 @@ export default function QuestionBox() {
           <h2>{question.text}</h2>
           <br />
           <GridContainer>
-            <GridItem xs={1} sm={1} md={1}></GridItem>
+            <GridItem xs={1} sm={2} md={2}></GridItem>
             <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-1"}
@@ -63,7 +65,7 @@ export default function QuestionBox() {
                 }}
                 color={arrayOfAnswers[id] === 1 ? "success" : "github"}
               >
-                Not at all
+                Very False
               </Button>
             </GridItem>
             <GridItem xs={12} sm={2} md={2}>
@@ -74,10 +76,10 @@ export default function QuestionBox() {
                 }}
                 color={arrayOfAnswers[id] === 2 ? "success" : "github"}
               >
-                A Little
+                Somewhat false
               </Button>
             </GridItem>
-            <GridItem xs={12} sm={2} md={2}>
+            {/* <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-3"}
                 onClick={() => {
@@ -87,7 +89,7 @@ export default function QuestionBox() {
               >
                 Neutral
               </Button>
-            </GridItem>
+            </GridItem> */}
             <GridItem xs={12} sm={2} md={2}>
               <Button
                 id={id + "-4"}
@@ -96,7 +98,7 @@ export default function QuestionBox() {
                 }}
                 color={arrayOfAnswers[id] === 4 ? "success" : "github"}
               >
-                Somewhat
+                Somewhat true
               </Button>
             </GridItem>
             <GridItem xs={12} sm={2} md={2}>
@@ -107,16 +109,25 @@ export default function QuestionBox() {
                 }}
                 color={arrayOfAnswers[id] === 5 ? "success" : "github"}
               >
-                Very Much
+                Very True
               </Button>
             </GridItem>
-            <GridItem xs={1} sm={1} md={1}></GridItem>
+            <GridItem xs={1} sm={2} md={2}></GridItem>
           </GridContainer>
           <hr />
         </div>
       ))}
-      <Link to={"/results-page"} className={classes.button}>
-        <Button className={classes.finish} color="warning">
+      <Link
+        to={{
+          pathname: "/results-page",
+          state: arrayOfAnswers,
+        }}
+        className={classes.button}
+      >
+        <Button
+          className={classes.finish}
+          color="warning"
+        >
           Finish
         </Button>
       </Link>

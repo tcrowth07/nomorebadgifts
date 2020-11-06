@@ -24,45 +24,107 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 
 import styles from "assets/jss/material-kit-react/views/resultsPage/resultsStyle.js";
 
+import useAxios from "axios-hooks";
+
 const useStyles = makeStyles(styles);
 
 export default function ResultsPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-  const giftIdeas = [
-    {
-      id: 1,
-      name: "Hyrule Warriors",
-      description: "The coolest upcoming game",
-      price: 59.99,
-      img:
-        "https://www.nintendo.com/content/dam/noa/en_US/games/switch/h/hyrule-warriors-age-of-calamity-switch/hyrule-warriors-age-of-calamity-switch-hero.jpg",
-      whereToBuy:
-        "https://www.amazon.com/Hyrule-Warriors-Age-Calamity-Nintendo-Switch/dp/B08HP4K7KC/ref=sr_1_2?dchild=1&keywords=video%2Bgames&qid=1602002915&sr=8-2&th=1",
-    },
-    {
-      id: 2,
-      name: "12 PCS Training Multitool Set Kit",
-      description: "A lock pick set with clear lock for beginers",
-      price: 17.99,
-      img:
-        "https://cdn.shopify.com/s/files/1/0248/6216/products/lock-pick-set-s.jpg?v=1573140702",
-      whereToBuy:
-        "https://www.amazon.com/PCS-Training-Multitool-Set-Kit/dp/B08FMQGMXB/ref=sr_1_9?dchild=1&keywords=lock+picking+set&qid=1602004138&sr=8-9",
-    },
-    {
-      id: 3,
-      name: "All-new Echo (4th Gen)",
-      description:
-        "A virtual assistant with premium sound, smart home hub, and Alexa",
-      price: 99.99,
-      img:
-        "https://images-na.ssl-images-amazon.com/images/I/61VVYg2ur%2BL._AC_SL1000_.jpg",
-      whereToBuy:
-        "https://www.amazon.com/dp/B07XKF5RM3/ref=ods_gw_ha_btf_dash_lsr_092620?pf_rd_r=AXBNZBYQ7ZD25M3E8JWA&pf_rd_p=b783eb6c-5da9-4fe3-9b0c-38a7927b0265",
-    },
-  ];
+  const arrayOfAnswers = props.location.state;
+
+  let pType = {
+    introverted: false,
+    observant: false,
+    thinking: false,
+    judging: false,
+  };
+  if (arrayOfAnswers[0] < 3) {pType.introverted = true}
+  if (arrayOfAnswers[1] < 3) {pType.observant = true}
+  if (arrayOfAnswers[2] > 2) {pType.thinking = true}
+  if (arrayOfAnswers[3] < 3) {pType.judging = true}
+
+  let pTypeString = ""
+  if(pType.introverted) { pTypeString = pTypeString + "i" } else { pTypeString = pTypeString + "e" }
+  if(pType.observant) { pTypeString = pTypeString + "s" } else { pTypeString = pTypeString + "n" }
+  if(pType.thinking) { pTypeString = pTypeString + "t" } else { pTypeString = pTypeString + "f" }
+  if(pType.judging) { pTypeString = pTypeString + "j" } else { pTypeString = pTypeString + "p" }
+
+  const url = "http://localhost:5000/types/" + pTypeString;
+  let [{ data, loading, error, response }] = useAxios(url);
+
+  if (loading) return <h5>Loading...</h5>;
+  if (error)
+    return (
+      <h5 style={{ color: "red" }}>There was an error loading your results</h5>
+    );
+
+  if (response.data) {
+    data = response.data;
+  }
+  const desc = data.description
+  const descWithBreaks = desc.split('<br/>').map(str => <p>{str}</p>);
+
+    const giftIdeas = [
+      {
+        id: 1,
+        name: "Hyrule Warriors",
+        description: "The coolest upcoming game",
+        price: 59.99,
+        relation: "Everyone",
+        img:
+          "https://www.nintendo.com/content/dam/noa/en_US/games/switch/h/hyrule-warriors-age-of-calamity-switch/hyrule-warriors-age-of-calamity-switch-hero.jpg",
+        whereToBuy:
+          "https://www.amazon.com/Hyrule-Warriors-Age-Calamity-Nintendo-Switch/dp/B08HP4K7KC/ref=sr_1_2?dchild=1&keywords=video%2Bgames&qid=1602002915&sr=8-2&th=1",
+      },
+      {
+        id: 2,
+        name: "12 PCS Training Multitool Set Kit",
+        description: "A lock pick set with clear lock for beginers",
+        price: 17.99,
+        relation: "Everyone",
+        img:
+          "https://cdn.shopify.com/s/files/1/0248/6216/products/lock-pick-set-s.jpg?v=1573140702",
+        whereToBuy:
+          "https://www.amazon.com/PCS-Training-Multitool-Set-Kit/dp/B08FMQGMXB/ref=sr_1_9?dchild=1&keywords=lock+picking+set&qid=1602004138&sr=8-9",
+      },
+      {
+        id: 3,
+        name: "All-new Echo (4th Gen)",
+        description:
+          "A virtual assistant with premium sound, smart home hub, and Alexa",
+        price: 99.99,
+        relation: "Everyone",
+        img:
+          "https://images-na.ssl-images-amazon.com/images/I/61VVYg2ur%2BL._AC_SL1000_.jpg",
+        whereToBuy:
+          "https://www.amazon.com/dp/B07XKF5RM3/ref=ods_gw_ha_btf_dash_lsr_092620?pf_rd_r=AXBNZBYQ7ZD25M3E8JWA&pf_rd_p=b783eb6c-5da9-4fe3-9b0c-38a7927b0265",
+      },
+      {
+        id: 4,
+        name: "WZA Carbon Fiber Minimalist Wallet",
+        description:
+          "SWZA wallet is designed to create a minimalist wallet which would be perfect for business cards, credit cards, driver’s license, and so much more!",
+        price: 14.97,
+        relation: "Everyone",
+        img:
+          "https://images-na.ssl-images-amazon.com/images/I/61lzYaE71JL._AC_SL1200_.jpg",
+        whereToBuy:
+          "https://www.amazon.com/dp/B07932JXQV/ref=cm_gf_aAN_d_p0_qd0_ik91lRw86xl46xGYaLtL",
+      },
+      {
+        id: 5,
+        name: "A picnic lunch",
+        description:
+          "The chance to get away and spend time with your favorite person",
+        price: 0,
+        relation: "Spouse",
+        img:
+          "https://bostonglobe-prod.cdn.arcpublishing.com/resizer/UNFVQe8OFNkTh28qbw46ZyaKMC8=/1440x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/DQVTIEF5Q5G6FL7MGTPTTYAQ7E.jpg",
+        whereToBuy: "",
+      },
+    ];
   return (
     <div>
       <Header
@@ -93,60 +155,15 @@ export default function ResultsPage(props) {
                       tabContent: (
                         <div key="type">
                           <h2>
-                            You're gift recieving type is <b>INTP</b>
+                            You're gift recieving type is <b>{data.id}</b>
                           </h2>
-                          <img
+                          {/* <img
                             alt="gift giving type"
                             src={require("assets/img/intp.png")}
-                          />
-                          <p className={classes.typeDescription}>
-                            INTPs have extremely eclectic taste when it comes to
-                            gifts. They aren’t as easy to pin down as some types
-                            are, but it also makes for a more exciting
-                            experience trying to track down just the right
-                            thing! For the most part INTPs enjoy the holidays as
-                            long as they aren’t expected to attend every party
-                            and make small talk with every extended family
-                            member. They enjoy the food, spending time with
-                            their dearest friends, and the extra time off work
-                            to relax and catch up on some of their favorite
-                            activities.
-                            <br />
-                            <br />
-                            INTPs tend to be relatively easy-going about
-                            receiving gifts. They appreciate the thought that
-                            goes into the gift and about 80% of the INTPs I
-                            spoke with said that they usually enjoyed their
-                            presents and figured they were easy to buy for. The
-                            other 20% of the INTPs I spoke with (I spoke with
-                            roughly 70 INTPs) said that they were difficult to
-                            buy for because they just purchase what they want
-                            when they want it and have a hard time thinking of
-                            something they want that they don’t already have
-                            (besides cash).
-                            <br />
-                            <br />
-                            Many INTPs are apprehensive about public
-                            gift-giving. They can feel self-conscious opening
-                            presents around other people who are anticipating a
-                            response. They can worry about whether they seem
-                            surprised or happy enough, and can also worry about
-                            the “contracts” of gift-giving. They want to feel
-                            free to give to whom they wish and to not have to
-                            shop for people they don’t know very well yet. If
-                            you’re buying an INTP a gift, but don’t know them
-                            very well, make sure to make it clear that you’re
-                            just doing this for fun but you don’t want something
-                            in return.
-                            <br />
-                            <br />
-                            When it comes to giving gifts, INTPs tend to be
-                            thoughtful and considerate, but they usually aren’t
-                            interested in buying things for large groups of
-                            extended family and people at the office. They enjoy
-                            buying gifts for very loyal and close friends and
-                            family members.
-                          </p>
+                          /> */}
+                          <div style={{ whiteSpace: 'pre-wrap' }} className={classes.typeDescription}>
+                              {descWithBreaks}
+                          </div>
                           <div className={classes.share}>
                             <h3>Share your results!</h3>
                             <Button justIcon link className={classes.margin5}>
@@ -166,63 +183,63 @@ export default function ResultsPage(props) {
                       tabButton: "Gift Ideas",
                       tabIcon: EmojiObjectsIcon,
                       tabContent: giftIdeas.map((idea, id) => (
-                          <div key={id} className={classes.root}>
-                            <Paper className={classes.paper}>
-                              <Grid container spacing={2}>
-                                <Grid item>
-                                  <ButtonBase className={classes.image}>
-                                    <img
-                                      className={classes.img}
-                                      alt="complex"
-                                      src={idea.img}
-                                    />
-                                  </ButtonBase>
-                                </Grid>
-                                <Grid item xs={12} sm container>
-                                  <Grid
-                                    item
-                                    xs
-                                    container
-                                    direction="column"
-                                    spacing={2}
-                                  >
-                                    <Grid item xs>
-                                      <Typography
-                                        gutterBottom
-                                        variant="subtitle1"
-                                      >
-                                        {idea.name}
-                                      </Typography>
-                                      <Typography variant="body2" gutterBottom>
-                                        {idea.description}
-                                      </Typography>
-                                      <Typography
-                                        variant="body2"
-                                        color="textSecondary"
-                                      >
-                                        {idea.id}
-                                      </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                      <Typography
-                                        variant="body2"
-                                        style={{ cursor: "pointer" }}
-                                      >
-                                        <Button color="success">Like</Button>
-                                        <Button color="danger">Dislike</Button>
-                                        <Button>Already Have/Can't Use</Button>
-                                      </Typography>
-                                    </Grid>
+                        <div key={id} className={classes.root}>
+                          <Paper className={classes.paper}>
+                            <Grid container spacing={2}>
+                              <Grid item>
+                                <ButtonBase className={classes.image}>
+                                  <img
+                                    className={classes.img}
+                                    alt="complex"
+                                    src={idea.img}
+                                  />
+                                </ButtonBase>
+                              </Grid>
+                              <Grid item xs={12} sm container>
+                                <Grid
+                                  item
+                                  xs
+                                  container
+                                  direction="column"
+                                  spacing={2}
+                                >
+                                  <Grid item xs>
+                                    <Typography
+                                      gutterBottom
+                                      variant="subtitle1"
+                                    >
+                                      {idea.name}
+                                    </Typography>
+                                    <Typography variant="body2" gutterBottom>
+                                      {idea.description}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      color="textSecondary"
+                                    >
+                                      Who can see: {idea.relation}
+                                    </Typography>
                                   </Grid>
                                   <Grid item>
-                                    <Typography variant="subtitle1">
-                                      {idea.price}
+                                    <Typography
+                                      variant="body2"
+                                      style={{ cursor: "pointer" }}
+                                    >
+                                      <Button color="success">Like</Button>
+                                      <Button color="danger">Dislike</Button>
+                                      <Button>Already Have/Can't Use</Button>
                                     </Typography>
                                   </Grid>
                                 </Grid>
+                                <Grid item>
+                                  <Typography variant="subtitle1">
+                                    ${idea.price}
+                                  </Typography>
+                                </Grid>
                               </Grid>
-                            </Paper>
-                          </div>
+                            </Grid>
+                          </Paper>
+                        </div>
                       )),
                     },
                   ]}

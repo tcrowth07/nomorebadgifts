@@ -12,27 +12,16 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import QuizPage from "views/QuizPage/QuizPage.js";
-import QuizPage2 from "views/QuizPage2/QuizPage2.js";
 import ResultsPage from "views/ResultsPage/ResultsPage.js";
 import FriendsPage from "views/FriendsPage/FriendsPage.js";
 import AdminPage from "views/Admin/admin.js"
 
 var hist = createBrowserHistory();
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: 'purple',
-//     secondary: 'green',
-//     error: 'red',
-//   },
-// });
-
 ReactDOM.render(
-  //<MuiThemeProvider theme={theme}>
     <Router history={hist}>
       <Switch>
         <Route path="/quiz" component={QuizPage} />
-        <Route path="/quiz2" component={QuizPage2} />
         <Route path="/friends-page" component={FriendsPage} />
         <Route path="/results-page" component={ResultsPage} />
         <Route path="/profile-page" component={ProfilePage} />
@@ -42,6 +31,5 @@ ReactDOM.render(
         <Route path="/" component={LandingPage} />
       </Switch>
     </Router>,
-  //</MuiThemeProvider>,
   document.getElementById("root")
 );

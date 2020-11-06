@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -13,7 +13,6 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/adminPage/adminStyle.js";
-import useAxios from "axios-hooks";
 
 import { Form, Formik, useField } from "formik";
 import * as Yup from "yup";
@@ -118,9 +117,9 @@ export default function QuizPage(props) {
                   })}
                   onSubmit={async (values, { setSubmitting, resetForm }) => {
                     console.log("onSubmit", values);
-                    const results = await axios({
+                    await axios({
                       method: "post",
-                      url: "/questions",
+                      url: "https://nomorebadgifts.herokuapp.com/questions",
                       data: {
                         questionNumber: values.questionNumber,
                         text: values.text,

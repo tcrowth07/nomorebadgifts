@@ -5,6 +5,7 @@ import cors from 'cors'
 import 'dotenv/config.js'
 
 import questionsRoutes from './routes/questions.js'
+import typesRoutes from './routes/types.js'
 
 //Connecting to MongoDB
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/questions", questionsRoutes)
+app.use("/types", typesRoutes)
 
 app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`)
