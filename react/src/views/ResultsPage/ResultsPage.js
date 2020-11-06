@@ -51,8 +51,13 @@ export default function ResultsPage(props) {
   if(pType.thinking) { pTypeString = pTypeString + "t" } else { pTypeString = pTypeString + "f" }
   if(pType.judging) { pTypeString = pTypeString + "j" } else { pTypeString = pTypeString + "p" }
 
-  const url = "http://localhost:5000/types/" + pTypeString;
+  const url = "https://nomorebadgifts.herokuapp.com/types/" + pTypeString;
   let [{ data, loading, error, response }] = useAxios(url);
+
+  console.log("url", url)
+
+  console.log("data", data)
+  console.log("response", response)
 
   if (loading) return <h5>Loading...</h5>;
   if (error)
@@ -60,11 +65,13 @@ export default function ResultsPage(props) {
       <h5 style={{ color: "red" }}>There was an error loading your results</h5>
     );
 
+  let descWithBreaks = "Loading...";
+
   if (response.data) {
     data = response.data;
+    const desc = data.description
+    descWithBreaks = desc.split('<br/>').map(str => <p>{str}</p>);
   }
-  const desc = data.description
-  const descWithBreaks = desc.split('<br/>').map(str => <p>{str}</p>);
 
     const giftIdeas = [
       {
