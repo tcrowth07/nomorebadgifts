@@ -20,13 +20,17 @@ export default function QuestionBox() {
 
   const [arrayOfAnswers, setArrayOfAnswers] = React.useState([]);
   const [random, setRandom] = React.useState(0);
-  const [random2, setRandom2] = React.useState(0);
 
   const url = "https://nomorebadgifts.herokuapp.com/questions";
 
   let [{ questions, loading, error, response }] = useAxios(url);
 
-  if (loading) return <h5>Loading...</h5>;
+  if (loading) return (
+    <div className={classes.section}>
+    <h2>Loading...</h2>
+    <img alt="loading icon" src={require("../../../assets/img/giftLoading.gif")}/>
+    </div>
+  )
   if (error)
     return (
       <h5 style={{ color: "red" }}>There was an error loading the quiz</h5>
@@ -40,12 +44,10 @@ export default function QuestionBox() {
     arrayOfAnswers[questionNumber] = answer;
     setArrayOfAnswers(arrayOfAnswers);
 
-    //I have no idea why I need this, but it doesn't work without it
-    setRandom(answer);
-    setRandom2(questionNumber);
-    console.log("arrayOfAnswers", arrayOfAnswers);
-    console.log("random", random);
-    console.log("random2", random2);
+    //This triggers a rerender for the buttons, without it doesn't work
+    let tempRandom = Math.random()
+    setRandom(tempRandom)
+    console.log(random)
   }
 
   return (
@@ -119,7 +121,7 @@ export default function QuestionBox() {
       ))}
       <Link
         to={{
-          pathname: "/results-page",
+          pathname: "/hobbies",
           state: arrayOfAnswers,
         }}
         className={classes.button}
@@ -128,7 +130,7 @@ export default function QuestionBox() {
           className={classes.finish}
           color="warning"
         >
-          Finish
+          Next
         </Button>
       </Link>
     </div>

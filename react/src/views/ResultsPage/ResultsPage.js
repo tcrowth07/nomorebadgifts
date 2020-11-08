@@ -32,8 +32,10 @@ export default function ResultsPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-  const arrayOfAnswers = props.location.state;
+  const arrayOfAnswers = props.location.answers;
+  const selectedHobbies = props.location.hobbies;
 
+  /////Temporary way of getting quiz results - a butt ton of if statements)////
   let pType = {
     introverted: false,
     observant: false,
@@ -54,10 +56,6 @@ export default function ResultsPage(props) {
   const url = "https://nomorebadgifts.herokuapp.com/types/" + pTypeString;
   let [{ data, loading, error, response }] = useAxios(url);
 
-  console.log("url", url)
-
-  console.log("data", data)
-  console.log("response", response)
 
   if (loading) return <h5>Loading...</h5>;
   if (error)
@@ -70,7 +68,7 @@ export default function ResultsPage(props) {
   if (response.data) {
     data = response.data;
     const desc = data.description
-    descWithBreaks = desc.split('<br/>').map(str => <p>{str}</p>);
+    descWithBreaks = desc.split('<br/>').map((str, key) => <p key={key}>{str}</p>);
   }
 
     const giftIdeas = [
@@ -141,7 +139,7 @@ export default function ResultsPage(props) {
         fixed
         changeColorOnScroll={{
           height: 200,
-          color: "white",
+          color: "dark",
         }}
         {...rest}
       />
@@ -164,12 +162,15 @@ export default function ResultsPage(props) {
                           <h2>
                             You're gift recieving type is <b>{data.id}</b>
                           </h2>
-                          {/* <img
-                            alt="gift giving type"
-                            src={require("assets/img/intp.png")}
-                          /> */}
-                          <div style={{ whiteSpace: 'pre-wrap' }} className={classes.typeDescription}>
+                          <div className={classes.typeDescription}>
                               {descWithBreaks}
+                          </div>
+                          <div>
+                            <ul>
+                            {Object.values(selectedHobbies).map((hobby, id) => (
+                              <li key={id}>{hobby}</li>
+                            ))}
+                            </ul>
                           </div>
                           <div className={classes.share}>
                             <h3>Share your results!</h3>

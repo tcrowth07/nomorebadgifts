@@ -163,6 +163,14 @@ export default function QuizPage(props) {
                 </Formik>
               </GridItem>
             </GridContainer>
+            <GridContainer justify="center">
+              <GridItem xs={12} sm={12} md={6}>
+
+              </GridItem>
+              <GridItem xs={12} sm={12} md={6}>
+
+              </GridItem>
+            </GridContainer>
           </div>
         </div>
       </div>
