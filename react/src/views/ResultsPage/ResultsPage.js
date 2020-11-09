@@ -19,7 +19,7 @@ import useAxios from "axios-hooks";
 
 import { useHistory } from "react-router-dom";
 
-import GiftList from "./GiftList";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -101,14 +101,6 @@ export default function ResultsPage(props) {
     ));
   }
 
-  function toggleGiftList() {
-    if (showGiftList) {
-      setShowGiftList(false);
-    } else {
-      setShowGiftList(true);
-    }
-  }
-
   return (
     <div>
       <Header
@@ -152,13 +144,18 @@ export default function ResultsPage(props) {
               </GridItem>
             </GridContainer>
             <div className={classes.navWrapper}>
-              <Button
-                onClick={() => toggleGiftList()}
-                color={showGiftList ? "rose" : "success"}
-              >
-                {showGiftList ? "Hide Gift List" : "Show My Gift List"}
-              </Button>
-              {showGiftList ? <GiftList /> : null}
+            <Link
+                to={{
+                pathname: "/gift-list",
+                answers: arrayOfAnswers,
+                hobbies: selectedHobbies
+                }}
+                className={classes.button}
+            >
+                <Button className={classes.finish} color="warning">
+                View My Gift List
+                </Button>
+            </Link>
             </div>
           </div>
         </div>
