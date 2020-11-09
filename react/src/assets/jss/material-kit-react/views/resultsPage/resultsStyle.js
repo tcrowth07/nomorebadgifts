@@ -60,12 +60,12 @@ const productStyle = {
     color: "#999"
   },
   navWrapper: {
-    margin: "20px auto 50px auto",
+    margin: "20px auto 10px auto",
     textAlign: "center"
   },
   typeDescription: {
-    fontSize: "1rem",
-    whiteSpace: "pre-wrap"
+    fontSize: "1.2rem",
+    marginTop: "30px"
   },
   root: {
     flexGrow: 1,

@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 
 import styles from "assets/jss/material-kit-react/views/quizPageSections/quizStyle.js";
 
+import hobbies from "views/HobbiesPage/Sections/hobbies.js"
+
 const useStyles = makeStyles(styles);
 
 export default function QuestionBox(props) {
@@ -20,37 +22,6 @@ export default function QuestionBox(props) {
   const [selectedHobbies, setSelectedHobbies] = React.useState([]);
   const [random, setRandom] = React.useState(0);
 
-  const hobbies = [
-    {
-      id: 1,
-      name: "Programming",
-    },
-    {
-      id: 2,
-      name: "Reading",
-    },
-    {
-      id: 3,
-      name: "Gaming",
-    },
-    {
-      id: 4,
-      name: "Cooking",
-    },
-    {
-      id: 5,
-      name: "Board Games",
-    },
-    {
-      id: 6,
-      name: "Basketball",
-    },
-    {
-      id: 7,
-      name: "Snowboarding",
-    },
-  ];
-
   function enable(hobby) {
     let tempHobbies = selectedHobbies
     var index = tempHobbies.indexOf(hobby.name);
@@ -59,7 +30,6 @@ export default function QuestionBox(props) {
     } else {
       tempHobbies.push(hobby.name);
     }
-
     setSelectedHobbies(tempHobbies);
 
     //Still not sure why, but this makes it so the buttons change color. Something to do with setSelectedHobbies not triggering rerender
