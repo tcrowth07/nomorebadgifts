@@ -147,6 +147,11 @@ const headerStyle = {
     paddingRight: "0px",
     paddingLeft: "0",
     ...transition
+  },
+  logo: {
+    width: "auto",
+    maxWidth: "55%",
+    minWidth: "280px"
   }
 };
 

@@ -1,7 +1,7 @@
 const hobbies = [
   {
     id: 1,
-    name: "Programming",
+    name: "Exercise",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const hobbies = [
   },
   {
     id: 6,
-    name: "Basketball",
+    name: "Ball Sports",
   },
   {
     id: 7,
@@ -33,7 +33,19 @@ const hobbies = [
   },
   {
     id: 9,
-    name: "Writing",
+    name: "Hiking",
+  },
+  {
+    id: 9,
+    name: "Camping",
+  },
+  {
+    id: 9,
+    name: "Programming",
+  },
+  {
+    id: 9,
+    name: "Biking",
   },
 ];
 

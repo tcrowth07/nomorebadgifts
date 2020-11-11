@@ -51,7 +51,7 @@ export default function QuestionBox(props) {
               color={
                 selectedHobbies.indexOf(hobby.name) !== -1
                   ? "success"
-                  : "rose"
+                  : "danger"
               }
             >
               {hobby.name}

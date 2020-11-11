@@ -26,7 +26,7 @@ export default function ProductSection() {
           Chances are, you are very bad at giving good gifts. That’s ok, we are too. That’s why we made SleighList.
            Our application is great because 
            <ol>
-             <li>You can get your wife, partner, friend, etc… a gift they will actually like</li>
+             <li>You can get your spouse, partner, friend, coworker, etc… a gift they will actually like</li>
              <li>They don’t have to tell you what to get, keeping your gift a surprise.</li>
            </ol>
            All they have to do is take a quiz, and all you have to do is find their profile on here. You’ll see a huge list
