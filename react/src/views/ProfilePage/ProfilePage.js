@@ -123,10 +123,6 @@ export default function ProfilePage(props) {
                           <h2>
                             Christian's recieving type is <b>INTP</b>
                           </h2>
-                          <img
-                            alt="gift giving type"
-                            src={require("assets/img/intp.png")}
-                          />
                           <p className={classes.typeDescription}>
                             INTPs have extremely eclectic taste when it comes to
                             gifts. They aren’t as easy to pin down as some types

@@ -30,8 +30,6 @@ export default function ResultsPage(props) {
   const arrayOfAnswers = props.location.answers;
   const selectedHobbies = props.location.hobbies;
 
-  const [showGiftList, setShowGiftList] = React.useState(false);
-
   console.log(selectedHobbies);
 
   const history = useHistory();

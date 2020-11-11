@@ -91,6 +91,7 @@ export default function LoginPage(props) {
                   <CardBody>
                     <CustomInput
                       labelText="First Name..."
+                      defaultValue="Bob"
                       id="first"
                       formControlProps={{
                         fullWidth: true
@@ -122,6 +123,7 @@ export default function LoginPage(props) {
                     />
                     <CustomInput
                       labelText="Password"
+                      defaultValue="ajlcaojencu"
                       id="pass"
                       formControlProps={{
                         fullWidth: true
@@ -146,7 +148,7 @@ export default function LoginPage(props) {
                       </Button>
                     </Link>
                     <Link to={"/friends-page"} className={classes.button}>
-                      <Button color="" size="lg">
+                      <Button color="github" size="lg">
                         Create Account
                       </Button>
                     </Link>

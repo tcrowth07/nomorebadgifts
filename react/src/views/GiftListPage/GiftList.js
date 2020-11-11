@@ -13,7 +13,7 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 
 import styles from "assets/jss/material-kit-react/views/resultsPage/resultsStyle.js";
 
-import giftIdeas from "views/ResultsPage/gifts.js";
+import giftIdeas from "./gifts.js";
 
 const useStyles = makeStyles(styles);
 

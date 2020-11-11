@@ -24,7 +24,8 @@ export default function CustomInput(props) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    defaultValue
   } = props;
 
   const labelClasses = classNames({
@@ -65,11 +66,12 @@ export default function CustomInput(props) {
         </InputLabel>
       ) : null}
       <Input
+        defaultValue= {defaultValue}
         classes={{
           input: inputClasses,
           root: marginTop,
           disabled: classes.disabled,
-          underline: underlineClasses
+          underline: underlineClasses,
         }}
         id={id}
         {...inputProps}
