@@ -22,12 +22,12 @@ export default function ResultsPage(props) {
 
   const selectedHobbies = props.location.hobbies;
   console.log(selectedHobbies)
-  
+
   return (
     <div>
       <Header
         color="transparent"
-        brand="NoMoreBad.Gifts"
+        brand="SleighList"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -47,12 +47,6 @@ export default function ResultsPage(props) {
                 it be your spouse, friends, coworkers, etc...
             </div>
             <div className={classes.navWrapper}>
-              {/* <Button
-                onClick={() => toggleGiftList()}
-                color={showGiftList ? "rose" : "success"}
-              >
-                {showGiftList ? "Hide Gift List" : "Show My Gift List"}
-              </Button> */}
               <GiftList />
             </div>
           </div>

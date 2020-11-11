@@ -23,7 +23,7 @@ export default function ProductSection() {
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Let{"'"}s help you find a good gift</h2>
           <h5 className={classes.description}>
-          Chances are, you are very bad at giving good gifts. That’s ok, we are too. That’s why we made nomorebad.gifts.
+          Chances are, you are very bad at giving good gifts. That’s ok, we are too. That’s why we made SleighList.
            Our application is great because 
            <ol>
              <li>You can get your wife, partner, friend, etc… a gift they will actually like</li>

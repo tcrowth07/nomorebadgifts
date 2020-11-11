@@ -37,7 +37,7 @@ export default function Components(props) {
   return (
     <div>
       <Header
-        brand="NoMoreBad.Gifts"
+        brand="SleighList"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"

@@ -38,7 +38,7 @@ export default function LoginPage(props) {
       <Header
         absolute
         color="transparent"
-        brand="NoMoreBad.Gifts"
+        brand="SleighList"
         rightLinks={<HeaderLinks />}
         {...rest}
       />

@@ -58,7 +58,7 @@ export default function Footer(props) {
           </List>
         </div>
         <div className={classes.right}>
-          NoMoreBad.Gifts &copy; {1900 + new Date().getYear()} 
+          SleighList &copy; {1900 + new Date().getYear()} 
         </div>
       </div>
     </footer>

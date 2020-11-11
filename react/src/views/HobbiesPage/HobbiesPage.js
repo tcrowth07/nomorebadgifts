@@ -28,7 +28,7 @@ export default function HobbiesPage(props) {
     <div>
       <Header
         color="transparent"
-        brand="NoMoreBad.Gifts"
+        brand="SleighList"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
