@@ -90,22 +90,6 @@ export default function LoginPage(props) {
                   <p className={classes.divider}>Or use your email</p>
                   <CardBody>
                     <CustomInput
-                      labelText="First Name..."
-                      defaultValue="Bob"
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
                       labelText="Email..."
                       defaultValue="bob@example.com"
                       id="email"
@@ -147,7 +131,7 @@ export default function LoginPage(props) {
                         Login
                       </Button>
                     </Link>
-                    <Link to={"/friends-page"} className={classes.button}>
+                    <Link to={"/create-account"} className={classes.button}>
                       <Button color="github" size="lg">
                         Create Account
                       </Button>

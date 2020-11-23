@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const giftSchema = new Schema({
-    id: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -16,15 +12,23 @@ const giftSchema = new Schema({
     },
     price: {
         type: Number,
-        required?
+        required: true
     },
     img: {
         type: String,
-        required?
+        required: true
     },
     whereToBuy: {
         type: String,
-        required?
+    },
+    category1: {
+        type: String,
+    },
+    category2: {
+        type: String,
+    },
+    category3: {
+        type: String,
     }
 },{ timestamps: true });
 

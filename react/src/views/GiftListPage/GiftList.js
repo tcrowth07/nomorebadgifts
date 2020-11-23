@@ -13,16 +13,39 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 
 import styles from "assets/jss/material-kit-react/views/resultsPage/resultsStyle.js";
 
-import giftIdeas from "./gifts.js";
+import useAxios from "axios-hooks";
 
 const useStyles = makeStyles(styles);
 
 export default function GiftList(props) {
   const classes = useStyles();
 
+  const url = "http://localhost:5000/gifts";
+
+  let [{ gifts, loading, error, response }] = useAxios(url);
+
+  if (loading)
+    return (
+      <div className={classes.section}>
+        <h2>Loading...</h2>
+        <img
+          alt="loading icon"
+          src={require("../../assets/img/giftLoading.gif")}
+        />
+      </div>
+    );
+  if (error)
+    return (
+      <h5 style={{ color: "red" }}>There was an error loading your results</h5>
+    );
+
+  if (response.data) {
+    gifts = response.data;
+  }
+
   return (
     <GridItem xs={12} sm={12} md={10} className={classes.navWrapper}>
-      {giftIdeas.map((idea, id) => (
+      {gifts.map((idea, id) => (
         <div key={id} className={classes.root}>
           <Paper className={classes.paper}>
             <Grid container spacing={2}>

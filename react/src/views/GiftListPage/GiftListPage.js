@@ -44,7 +44,9 @@ export default function ResultsPage(props) {
             <div className={classes.typeDescription}>
                 This is your gift list based on your gift recieving type and your hobbies. You can like or dislike ideas, or tell us
                 you already have this item or it doesn't apply. You also have the option of specifying who can see each item, whether
-                it be your spouse, friends, coworkers, etc...
+                it be your spouse, friends, coworkers, etc... 
+                <p style={{color:"red"}}>Note these are just 
+                sample gifts, we are working on making them reflect your quiz responses</p>
             </div>
             <div className={classes.navWrapper}>
               <GiftList />

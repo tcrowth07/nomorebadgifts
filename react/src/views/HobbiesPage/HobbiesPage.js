@@ -46,6 +46,7 @@ export default function HobbiesPage(props) {
                 <div className={classes.profile}>
                   <div>
                     <h2>Select the hobbies you enjoy</h2>
+                    <p style={{color:"red"}}>This is not a complete list, it's just used for demonstration</p>
                   </div>
                 </div>
               </GridItem>

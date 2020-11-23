@@ -46,7 +46,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem md={12} xs={12}>
-              <div className={classes.title}>
+              <div className={classes.titleDiv}>
                 <h1 className={classes.title}>
                   Here to Help You <br />
                   Give Better Gifts
