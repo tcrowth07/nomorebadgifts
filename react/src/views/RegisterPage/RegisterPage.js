@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
-import Email from "@material-ui/icons/Email";
+import { Email, Person, AccountCircle, Event } from "@material-ui/icons/";
 
 // core components
 import Header from "components/Header/Header.js";
@@ -66,24 +66,51 @@ export default function LoginPage(props) {
                 <Formik
                   enableReinitialize
                   initialValues={{
+                    firstName: "",
+                    lastName: "",
+                    displayName: "",
+                    birthday: "",
                     email: "",
                     password: "",
+                    passwordCheck: "",
                   }}
                   validationSchema={Yup.object({
+                    firstName: Yup.string().required("First name is required"),
+                    lastName: Yup.string().required("Last name is required"),
+                    displayName: Yup.string().required(
+                      "Display name is required"
+                    ),
+                    birthday: Yup.string().required("Birthday is required"),
                     email: Yup.string().required("Email is required"),
-                    password: Yup.string().required("Password is required"),
+                    password: Yup.string()
+                      .required("Password is required")
+                      .min(6, "Password must be at least 6 characters"),
+                    passwordCheck: Yup.string()
+                      .required("Password is required")
+                      .min(6, "Password must be at least 6 characters"),
                   })}
                   onSubmit={async (values, { setSubmitting, resetForm }) => {
                     try {
-                      const loginRes = await Axios({
+                      await Axios({
                         method: "post",
-                        url: "http://localhost:5000/users/login",
+                        url: "http://localhost:5000/users/register",
                         data: {
+                          firstName: values.firstName,
+                          lastName: values.lastName,
+                          displayName: values.displayName,
+                          birthDate: values.birthday,
                           email: values.email,
                           password: values.password,
+                          passwordCheck: values.passwordCheck,
                         },
                       });
-
+                      const loginRes = await Axios.post(
+                        "http://localhost:5000/users/login",
+                        {
+                          email: values.email,
+                          password: values.password,
+                        }
+                      );
                       setUserData({
                         token: loginRes.data.token,
                         user: loginRes.data.user,
@@ -103,10 +130,72 @@ export default function LoginPage(props) {
                         color="warning"
                         className={classes.cardHeader}
                       >
-                        <h4>Login</h4>
+                        <h4>Register a New User</h4>
                         <div className={classes.socialLine}></div>
                       </CardHeader>
                       <CardBody>
+                        <CustomInput
+                          labelText="First Name"
+                          name="firstName"
+                          id="firstName"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <Person className={classes.inputIconsColor} />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                        <CustomInput
+                          labelText="Last Name"
+                          name="lastName"
+                          id="lastName"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <Person className={classes.inputIconsColor} />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                        <CustomInput
+                          labelText="Display Name"
+                          name="displayName"
+                          id="displayName"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <AccountCircle
+                                  className={classes.inputIconsColor}
+                                />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                        <CustomInput
+                          labelText="Birthday"
+                          name="birthday"
+                          id="birthday"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <Event className={classes.inputIconsColor} />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
                         <CustomInput
                           labelText="Email"
                           name="email"
@@ -142,18 +231,38 @@ export default function LoginPage(props) {
                             autoComplete: "off",
                           }}
                         />
+                        <CustomInput
+                          labelText="Re-enter Password"
+                          name="passwordCheck"
+                          id="passwordCheck"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            type: "password",
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <Icon className={classes.inputIconsColor}>
+                                  lock_outline
+                                </Icon>
+                              </InputAdornment>
+                            ),
+                            autoComplete: "off",
+                          }}
+                        />
                         {error && <h5 style={{color:"red"}}>{error}</h5>}
                       </CardBody>
-
                       <CardFooter className={classes.cardFooter}>
-                        <Button type="submit" color="warning" size="lg">
-                          {props.isSubmitting ? "Logging you in..." : "Log In"}
-                        </Button>
-                        <Link to={"/register"} className={classes.button}>
+                        <Link to={"/login"} className={classes.button}>
                           <Button color="github" size="lg">
-                            Create Account
+                            Back to Login
                           </Button>
                         </Link>
+                        {/* <Link to={"/register"} className={classes.button}> */}
+                        <Button type="submit" color="warning" size="lg">
+                          Create Account
+                        </Button>
+                        {/* </Link> */}
                       </CardFooter>
                     </Form>
                   )}

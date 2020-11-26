@@ -47,7 +47,6 @@ export default function QuizPage(props) {
        GetQuestions()
     }
 
-
   return (
     <div>
       <Header

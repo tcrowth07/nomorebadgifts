@@ -9,6 +9,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 
+import { useField } from "formik"
+
 import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -25,7 +27,8 @@ export default function CustomInput(props) {
     white,
     inputRootCustomClasses,
     success,
-    defaultValue
+    defaultValue,
+    name
   } = props;
 
   const labelClasses = classNames({
@@ -54,6 +57,8 @@ export default function CustomInput(props) {
   } else {
     formControlClasses = classes.formControl;
   }
+
+  const [field, meta] = useField(props);
   return (
     <FormControl {...formControlProps} className={formControlClasses}>
       {labelText !== undefined ? (
@@ -66,6 +71,7 @@ export default function CustomInput(props) {
         </InputLabel>
       ) : null}
       <Input
+      {...field}
         defaultValue= {defaultValue}
         classes={{
           input: inputClasses,
@@ -74,8 +80,12 @@ export default function CustomInput(props) {
           underline: underlineClasses,
         }}
         id={id}
+        name= {name}
         {...inputProps}
       />
+      {meta.touched && meta.error ? (
+          <div style={{color:"red"}}>{meta.error}</div>
+        ) : null}
     </FormControl>
   );
 }

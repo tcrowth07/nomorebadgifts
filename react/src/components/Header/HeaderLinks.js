@@ -1,9 +1,7 @@
 /*eslint-disable*/
-import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-// react components for routing our app without refresh
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import userContext from "../../context/userContext.js";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,10 +10,9 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
+import { AccountCircle, Create, ExitToApp } from "@material-ui/icons";
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
@@ -24,23 +21,56 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+
+  const { userData, setUserData } = useContext(userContext);
+
+  const logout = () => {
+    setUserData({
+      token: undefined,
+      user: undefined
+    })
+    localStorage.setItem("auth-token", "");
+  }
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
-        <Button
-          href="/app"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <CloudDownload className={classes.icons} />Download the app!
-        </Button>
+      {userData.user ? (
+        <>
+        <ListItem className={classes.listItem}>
+          <Link to="/home">
+            <Button color="transparent" className={classes.navLink}>
+              <AccountCircle className={classes.icons} />
+              View My Account
+            </Button>
+          </Link>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button href="/" onClick={logout} color="transparent" className={classes.navLink}>
+            <ExitToApp className={classes.icons} />
+            Log Out
+          </Button>
       </ListItem>
-      <ListItem className={classes.listItem}>
-        {/*<Tooltip title="Delete">
-          <IconButton aria-label="Delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>*/}
+      </>
+      ) : (
+        <>
+          <ListItem className={classes.listItem}>
+            <Link to="/login">
+              <Button color="transparent" className={classes.navLink}>
+                <AccountCircle className={classes.icons} />
+                Login
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Link to="/register">
+              <Button color="transparent" className={classes.navLink}>
+                <Create className={classes.icons} />
+                Create An Account
+              </Button>
+            </Link>
+          </ListItem>
+        </>
+      )}
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"
@@ -90,7 +120,7 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
-      </ListItem>
+      </ListItem> */}
     </List>
   );
 }

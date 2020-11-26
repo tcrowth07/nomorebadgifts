@@ -21,13 +21,14 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
 
-const dashboardRoutes = [];
 
+const dashboardRoutes = [];
 const useStyles = makeStyles(styles);
 
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
   return (
     <div>
       <Header
@@ -63,7 +64,7 @@ export default function LandingPage(props) {
                   Take the quiz
                 </Button>
               </Link>
-              <Link to={"/login-page"} className={classes.button}>
+              <Link to={"/login"} className={classes.button}>
                 <Button size="lg" round>
                   View your friends
                 </Button>

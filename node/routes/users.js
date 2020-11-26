@@ -31,7 +31,7 @@ router.post("/register", async (req, res) => {
         .json({ msg: "Password must be at least 6 characters" });
     }
     if (password != passwordCheck) {
-      return res.status(400).json({ msg: "Passwords must match" });
+      return res.status(400).json({ msg: "Passwords do not match" });
     }
     const existingUser = await User.findOne({ email: email });
     if (existingUser) {
@@ -63,7 +63,6 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-
     //validate
     if (!email || !password) {
       return res.status(400).json({ msg: "Not all fields have been entered" });
@@ -73,7 +72,7 @@ router.post("/login", async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .json({ msg: "No user has been registered with this email" });
+        .json({ msg: "Invalid credentials" });
     }
 
     const isMatched = await bcrypt.compare(password, user.password);
@@ -82,7 +81,7 @@ router.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    console.log(token);
+
     res.json({
       token,
       user: {
@@ -127,5 +126,16 @@ router.post("/tokenisvalid", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+//GET: /users
+router.get("/", auth, async (req, res) => {
+  const user = await User.findById(req.user)
+  res.json({
+    displayName: user.displayName,
+    id: user._id,
+    firstName: user.firstName,
+    lastName: user.lastName
+  })
+})
 
 export default router;

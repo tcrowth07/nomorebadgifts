@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
-//import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
+import Axios from "axios";
 
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
@@ -10,13 +10,14 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
-import CreateAccountPage from "views/CreateAccountPage/CreateAccountPage.js";
+import RegisterPage from "views/RegisterPage/RegisterPage.js";
 import QuizPage from "views/QuizPage/QuizPage.js";
 import HobbiesPage from "views/HobbiesPage/HobbiesPage.js";
 import ResultsPage from "views/ResultsPage/ResultsPage.js";
 import GiftListPage from "views/GiftListPage/GiftListPage.js";
 import FriendsPage from "views/FriendsPage/FriendsPage.js";
 import AdminPage from "views/Admin/admin.js";
+import HomePage from "views/Home/Home.js";
 import UserContext from "./context/userContext.js";
 
 export default function App() {
@@ -26,9 +27,35 @@ export default function App() {
     user: undefined,
   });
 
+  useEffect(() => {
+    const checkLoggedIn = async () => {
+      let token = localStorage.getItem("auth-token");
+      if(token === null){
+          localStorage.setItem("auth-token", "");
+          token = "";
+      }
+      const tokenRes = await Axios.post(
+        "http://localhost:5000/users/tokenisvalid",
+        null,
+        { headers: { "x-auth-token": token } }
+      );
+      if(tokenRes.data){
+        const userRes = await Axios.get(
+            "http://localhost:5000/users/",
+            { headers: { "x-auth-token": token } }
+          );
+        setUserData({
+            token,
+            user: userRes.data
+        });
+      }
+    };
+    checkLoggedIn();
+  }, []);
+
   return (
     <Router history={hist}>
-      <UserContext.Provider value={{ userData, setUserData }}>
+        <UserContext.Provider value={{ userData, setUserData }}>
         <Switch>
           <Route path="/quiz" component={QuizPage} />
           <Route path="/hobbies" component={HobbiesPage} />
@@ -36,10 +63,11 @@ export default function App() {
           <Route path="/results-page" component={ResultsPage} />
           <Route path="/gift-list" component={GiftListPage} />
           <Route path="/profile-page" component={ProfilePage} />
-          <Route path="/login-page" component={LoginPage} />
-          <Route path="/create-account" component={CreateAccountPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
           <Route path="/components" component={Components} />
           <Route path="/admin" component={AdminPage} />
+          <Route path="/home" component={HomePage} />
           <Route path="/" component={LandingPage} />
         </Switch>
       </UserContext.Provider>
