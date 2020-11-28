@@ -13,13 +13,12 @@ import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import profile from "assets/img/profile.jpeg";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
-import styles from "assets/jss/material-kit-react/views/profilePage.js";
+import styles from "assets/jss/material-kit-react/views/home.js";
 import giftIdeas from "./giftIdeas.js";
 import { useHistory } from "react-router-dom";
 import userContext from "context/userContext.js";
@@ -29,11 +28,6 @@ const useStyles = makeStyles(styles);
 export default function Home(props) {
   const classes = useStyles();
   const { ...rest } = props;
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
-  );
 
   const { userData } = useContext(userContext);
   const history = useHistory();
@@ -63,9 +57,6 @@ export default function Home(props) {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
                 <div className={classes.profile}>
-                  <div>
-                    <img src={profile} alt="..." className={imageClasses} />
-                  </div>
                   <div className={classes.name}>
                     <h3 className={classes.title}>{userData.user ? userData.user.displayName : null}</h3>
                     <br />
