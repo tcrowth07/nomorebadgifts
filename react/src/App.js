@@ -4,6 +4,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Axios from "axios";
 
 import "assets/scss/material-kit-react.scss?v=1.9.0";
+import "assets/css/material-dashboard-react.css?v=1.9.0";
 
 // pages for this product
 import LandingPage from "views/LandingPage/LandingPage.js";
@@ -17,6 +18,8 @@ import GiftListPage from "views/GiftListPage/GiftListPage.js";
 import FriendsPage from "views/FriendsPage/FriendsPage.js";
 import AdminPage from "views/Admin/admin.js";
 import HomePage from "views/Home/Home.js";
+import Admin from "layouts/Admin.js";
+import RTL from "layouts/RTL.js";
 import UserContext from "./context/userContext.js";
 
 export default function App() {
@@ -64,8 +67,10 @@ export default function App() {
           <Route path="/profile-page" component={ProfilePage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
-          <Route path="/admin" component={AdminPage} />
+          <Route path="/questionadmin" component={AdminPage} />
           <Route path="/home" component={HomePage} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/rtl" component={RTL} />
           <Route path="/" component={LandingPage} />
         </Switch>
       </UserContext.Provider>
