@@ -117,7 +117,7 @@ export default function LoginPage(props) {
                       });
                       localStorage.setItem("auth-token", loginRes.data.token);
                       setSubmitting(false);
-                      history.push("/home");
+                      history.push("/admin");
                       resetForm();
                     } catch (err) {
                       err.response.data.msg && setError(err.response.data.msg);

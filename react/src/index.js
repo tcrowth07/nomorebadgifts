@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.js"
+import AppContext from "./context/contextProvider.js"
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<AppContext />, document.getElementById("root"));
