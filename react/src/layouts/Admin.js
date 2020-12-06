@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -16,7 +16,7 @@ import routes from "routes.js";
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 import bgImage from "assets/img/sidebar-2.jpg";
-import logo from "assets/img/reactlogo.png";
+import logo from "assets/img/small_logo.png";
 
 let ps;
 
@@ -50,10 +50,10 @@ export default function Admin({ ...rest }) {
   const [color, setColor] = React.useState("blue");
   const [fixedClasses, setFixedClasses] = React.useState("dropdown");
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const handleImageClick = image => {
+  const handleImageClick = (image) => {
     setImage(image);
   };
-  const handleColorClick = color => {
+  const handleColorClick = (color) => {
     setColor(color);
   };
   const handleFixedClick = () => {
@@ -66,9 +66,6 @@ export default function Admin({ ...rest }) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const getRoute = () => {
-    return window.location.pathname !== "/admin/maps";
-  };
   const resizeFunction = () => {
     if (window.innerWidth >= 960) {
       setMobileOpen(false);
@@ -79,7 +76,7 @@ export default function Admin({ ...rest }) {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current, {
         suppressScrollX: true,
-        suppressScrollY: false
+        suppressScrollY: false,
       });
       document.body.style.overflow = "hidden";
     }
@@ -92,11 +89,19 @@ export default function Admin({ ...rest }) {
       window.removeEventListener("resize", resizeFunction);
     };
   }, [mainPanel]);
+
+  // Redirect to login if not logged in
+  const history = useHistory();
+  const authToken = localStorage.getItem("auth-token");
+  useEffect(() => {
+    if (!authToken) history.push("/login");
+  });
+
   return (
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"SleighList"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -110,15 +115,11 @@ export default function Admin({ ...rest }) {
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
-        {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-        {getRoute() ? (
-          <div className={classes.content}>
-            <div className={classes.container}>{switchRoutes}</div>
-          </div>
-        ) : (
-          <div className={classes.map}>{switchRoutes}</div>
-        )}
-        {getRoute() ? <Footer /> : null}
+
+        <div className={classes.content}>
+          <div className={classes.container}>{switchRoutes}</div>
+        </div>
+
         <FixedPlugin
           handleImageClick={handleImageClick}
           handleColorClick={handleColorClick}

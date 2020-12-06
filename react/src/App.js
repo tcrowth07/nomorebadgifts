@@ -18,7 +18,6 @@ import FriendsPage from "views/FriendsPage/FriendsPage.js";
 import AdminPage from "views/Admin/admin.js";
 import HomePage from "views/Home/Home.js";
 import Admin from "layouts/Admin.js";
-import RTL from "layouts/RTL.js";
 
 export default function App() {
 
@@ -36,7 +35,6 @@ export default function App() {
           <Route path="/questionadmin" component={AdminPage} />
           <Route path="/home" component={HomePage} />
           <Route path="/admin" component={Admin} />
-          <Route path="/rtl" component={RTL} />
           <Route path="/" component={LandingPage} />
         </Switch>
     </BrowserRouter>

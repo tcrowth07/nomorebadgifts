@@ -31,7 +31,7 @@ export default function HeaderLinks(props) {
           <h5>Welcome, {userData.user.displayName}</h5>
         </ListItem>
         <ListItem className={classes.listItem}>
-          <Link to="/home">
+          <Link to="/admin">
             <Button color="transparent" className={classes.navLink}>
               <AccountCircle className={classes.icons} />
               View My Account
