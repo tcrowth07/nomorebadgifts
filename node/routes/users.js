@@ -127,6 +127,21 @@ router.post("/tokenisvalid", async (req, res) => {
   }
 });
 
+//POST: users/search
+router.post("/search", async (req, res) => {
+  try {
+    const search = req.body.search;
+    const user = await User.find({displayName: {$regex: search, $options: 'i'}}).limit(5);
+    if (!user){
+        return res.json(false)
+    }
+    return res.json(user)
+    
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 //GET: /users
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user)
@@ -137,5 +152,17 @@ router.get("/", auth, async (req, res) => {
     lastName: user.lastName
   })
 })
+
+//GET: /users/userId
+router.get("/:userId", (req, res) => {
+  let userId = req.params.userId;
+  User.findById(userId)
+    .then((results) => {
+      res.send(results);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 export default router;

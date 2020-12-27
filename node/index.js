@@ -8,6 +8,9 @@ import questionsRoutes from "./routes/questions.js";
 import typesRoutes from "./routes/types.js";
 import giftRoutes from "./routes/gifts.js";
 import userRoutes from "./routes/users.js";
+import giftListRoutes from "./routes/giftLists.js";
+import friendsRoutes from "./routes/friends.js";
+import friendRequestRoutes from "./routes/friendRequests.js";
 
 //Connecting to MongoDB
 mongoose
@@ -29,6 +32,9 @@ app.use("/questions", questionsRoutes);
 app.use("/types", typesRoutes);
 app.use("/gifts", giftRoutes);
 app.use("/users", userRoutes);
+app.use("/giftLists", giftListRoutes);
+app.use("/friends", friendsRoutes);
+app.use("/friendRequests", friendRequestRoutes);
 
 app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`)

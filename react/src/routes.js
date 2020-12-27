@@ -16,24 +16,25 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
-import Language from "@material-ui/icons/Language";
+
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
-import TableList from "views/TableList/TableList.js";
-import Typography from "views/Typography/Typography.js";
-import Icons from "views/Icons/Icons.js";
+import GiftList from "views/GiftList/GiftList.js";
+import Friends from "views/Friends/friends.js";
+import FriendRequests from "views/FriendRequests/friendRequests.js";
+import SearchFriends from "views/searchFriends/searchFriends.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 
 const dashboardRoutes = [
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: Dashboard,
-    component: DashboardPage,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/dashboard",
+  //   name: "Dashboard",
+  //   icon: Dashboard,
+  //   component: DashboardPage,
+  //   layout: "/admin"
+  // },
   {
     path: "/user",
     name: "My Profile",
@@ -45,30 +46,37 @@ const dashboardRoutes = [
     path: "/gift-list",
     name: "My Gift List",
     icon: "content_paste",
-    component: TableList,
+    component: GiftList,
     layout: "/admin"
   },
   {
     path: "/friends",
     name: "Friends",
     icon: LibraryBooks,
-    component: Typography,
+    component: Friends,
+    layout: "/admin"
+  },
+  {
+    path: "/friend-requests",
+    name: "Friend Requests",
+    icon: LibraryBooks,
+    component: FriendRequests,
     layout: "/admin"
   },
   {
     path: "/search",
     name: "Search Friends",
     icon: BubbleChart,
-    component: Icons,
+    component: SearchFriends,
     layout: "/admin"
   },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/notifications",
+  //   name: "Notifications",
+  //   icon: Notifications,
+  //   component: NotificationsPage,
+  //   layout: "/admin"
+  // },
   {
     path: "/upgrade-to-pro",
     name: "Upgrade To PRO",

@@ -14,7 +14,6 @@ import QuizPage from "views/QuizPage/QuizPage.js";
 import HobbiesPage from "views/HobbiesPage/HobbiesPage.js";
 import ResultsPage from "views/ResultsPage/ResultsPage.js";
 import GiftListPage from "views/GiftListPage/GiftListPage.js";
-import FriendsPage from "views/FriendsPage/FriendsPage.js";
 import AdminPage from "views/Admin/admin.js";
 import HomePage from "views/Home/Home.js";
 import Admin from "layouts/Admin.js";
@@ -26,7 +25,6 @@ export default function App() {
         <Switch>
           <Route path="/quiz" component={QuizPage} />
           <Route path="/hobbies" component={HobbiesPage} />
-          <Route path="/friends-page" component={FriendsPage} />
           <Route path="/results-page" component={ResultsPage} />
           <Route path="/gift-list" component={GiftListPage} />
           <Route path="/profile-page" component={ProfilePage} />

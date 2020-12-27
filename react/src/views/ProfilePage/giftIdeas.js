@@ -11,7 +11,7 @@ const giftIdeas = [
     },
     {
       id: 2,
-      name: "12 PCS Training Multitool Set Kit",
+      name: "d",
       description: "A lock pick set with clear lock for beginers",
       price: 17.99,
       img:
