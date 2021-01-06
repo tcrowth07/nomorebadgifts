@@ -84,6 +84,11 @@ const productStyle = {
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
+  },
+  finish: {
+    width: "200px",
+    height: "50px",
+    fontSize: "1.2rem"
   }
 };
 

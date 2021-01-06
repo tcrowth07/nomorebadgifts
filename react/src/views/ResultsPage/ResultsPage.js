@@ -19,7 +19,7 @@ import useAxios from "axios-hooks";
 
 import { useHistory } from "react-router-dom";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -127,6 +127,17 @@ export default function ResultsPage(props) {
                     {descWithBreaks}
                   </div>
                 </div>
+                <Link
+                  to={{
+                    pathname: "/admin",
+                    answers: arrayOfAnswers,
+                    hobbies: selectedHobbies,
+                  }}
+                >
+                  <Button className={classes.finish} color="warning">
+                    View My Gift List
+                  </Button>
+                </Link>
                 <div className={classes.share}>
                   <h3>Share your results!</h3>
                   <Button justIcon link className={classes.margin5}>
@@ -141,20 +152,7 @@ export default function ResultsPage(props) {
                 </div>
               </GridItem>
             </GridContainer>
-            <div className={classes.navWrapper}>
-            <Link
-                to={{
-                pathname: "/gift-list",
-                answers: arrayOfAnswers,
-                hobbies: selectedHobbies
-                }}
-                className={classes.button}
-            >
-                <Button className={classes.finish} color="warning">
-                View My Gift List
-                </Button>
-            </Link>
-            </div>
+            <div className={classes.navWrapper}></div>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import Button from "components/CustomButtons/Button.js";
 import Table from "components-dashboard/Table/Table.js";
 import userContext from "context/userContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const styles = {
   typo: {
@@ -52,20 +53,19 @@ const useStyles = makeStyles(styles);
 export default function TypographyPage() {
   const classes = useStyles();
   const { userData } = useContext(userContext);
-  const urlGetFriendListByUser =
-    "http://localhost:5000/friends/" + userData.user.id;
   const [friendList, setFriendList] = useState([]);
   const [tableData, setTableData] = useState([]);
   ///somehow refreshes state to reflect changes, need to find better solution
   const [random, setRandom] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
 
   const GetFriendListByUser = () => {
+    const urlGetFriendListByUser =
+    "http://localhost:5000/friends/" + userData.user.id;
     axios
       .get(urlGetFriendListByUser)
       .then((resp) => {
-        if (resp.data.FriendList){
+        if (resp.data.FriendList) {
           setFriendList(resp.data.FriendList);
         }
         setLoading(false);
@@ -91,10 +91,13 @@ export default function TypographyPage() {
 
         let tableRow = [];
         if (friend.img)
-          tableRow.push(<img style={{ width: "80px" }} src={friend.img} />);
+          tableRow.push(
+            <img alt="profile" style={{ width: "80px" }} src={friend.img} />
+          );
         else
           tableRow.push(
             <img
+              alt="profile"
               style={{ width: "50px" }}
               src={require("../../assets/img/small_logo.png")}
             />
@@ -102,7 +105,9 @@ export default function TypographyPage() {
         tableRow.push(friend.displayName);
         tableRow.push(friend.firstName + " " + friend.lastName);
         if (friendId.friendAcceptedRequest) {
-          tableRow.push(<Button color="success">View List</Button>);
+          tableRow.push(
+              <Link to={"/admin/friends/" + friendId.userId}><Button color="success">View List</Button></Link>
+          );
         } else
           tableRow.push(
             "Waiting for " + friend.firstName + " to accept your invite"
@@ -115,16 +120,16 @@ export default function TypographyPage() {
   }, [friendList]);
 
   return (
-    <Card>
-      <CardHeader color="warning">
-        <h3 className={classes.cardTitleWhite}>My Friends</h3>
-      </CardHeader>
-      <CardBody>
-        <Table
-          tableHead={["", "Display Name", "Name", ""]}
-          tableData={tableData}
-        />
-      </CardBody>
-    </Card>
+        <Card>
+          <CardHeader color="warning">
+            <h3 className={classes.cardTitleWhite}>My Friends</h3>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHead={["", "Display Name", "Name", ""]}
+              tableData={tableData}
+            />
+          </CardBody>
+        </Card>
   );
 }

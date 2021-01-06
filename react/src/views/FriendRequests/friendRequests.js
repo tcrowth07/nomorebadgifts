@@ -57,7 +57,6 @@ export default function FriendRequestPage() {
   ///somehow refreshes state to reflect changes, need to find better solution
   const [random, setRandom] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
 
   const GetFriendRequestListByUser = () => {
     console.log(userData.user.id);
@@ -88,6 +87,7 @@ export default function FriendRequestPage() {
       },
     }).then((results) => {
       console.log(results);
+      setFriendRequestList(results.data.friendRequestList)
     });
     //then change friendAcceptedRequest to true on friend's friendList
     axios({
@@ -100,6 +100,7 @@ export default function FriendRequestPage() {
       console.log(results);
     });
   };
+
   if (loading && userData.user !== "") {
     GetFriendRequestListByUser();
   }
@@ -115,10 +116,11 @@ export default function FriendRequestPage() {
           const friend = results.data;
           let tableRow = [];
           if (friend.img)
-            tableRow.push(<img style={{ width: "80px" }} src={friend.img} />);
+            tableRow.push(<img alt="profile" style={{ width: "80px" }} src={friend.img} />);
           else
             tableRow.push(
               <img
+                alt="profile"
                 style={{ width: "50px" }}
                 src={require("../../assets/img/small_logo.png")}
               />
@@ -134,6 +136,7 @@ export default function FriendRequestPage() {
             >
               Accept Friend Request
             </Button>
+            
           );
           tempTableData.push(tableRow);
           setRandom(Math.random());

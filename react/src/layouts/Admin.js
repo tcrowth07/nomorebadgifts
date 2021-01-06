@@ -7,11 +7,11 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import Navbar from "components-dashboard/Navbars/Navbar.js";
-import Footer from "components-dashboard/Footer/Footer.js";
 import Sidebar from "components-dashboard/Sidebar/Sidebar.js";
 import FixedPlugin from "components-dashboard/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
+import FriendGiftList from "views/FriendGiftList/friendGiftList.js"
 
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
@@ -22,6 +22,7 @@ let ps;
 
 const switchRoutes = (
   <Switch>
+    <Route path="/admin/friends/:id" component={FriendGiftList} />
     {routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
@@ -34,7 +35,8 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/admin" to="/admin/dashboard" />
+    <Route path="/admin/friends/:id" component={FriendGiftList} />
+    <Redirect from="/admin" to="/admin/user" />
   </Switch>
 );
 

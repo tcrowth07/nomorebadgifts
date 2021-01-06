@@ -60,14 +60,14 @@ const useStyles = makeStyles(styles);
 export default function TableList() {
   const classes = useStyles();
   const { userData } = useContext(userContext);
-  const urlGetGiftListByUser =
-    "http://localhost:5000/giftlists/" + userData.user.id;
   const [giftList, setGiftList] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
 
   const GetGiftListByUser = () => {
+    const urlGetGiftListByUser =
+    "http://localhost:5000/giftlists/" + userData.user.id;
     axios
       .get(urlGetGiftListByUser)
       .then((resp) => {
@@ -90,10 +90,11 @@ export default function TableList() {
     for (let gift of giftList) {
       let tableRow = [];
       if (gift.img)
-        tableRow.push(<img style={{ width: "80px" }} src={gift.img} />);
+        tableRow.push(<img alt="profile" style={{ width: "80px" }} src={gift.img} />);
       else
         tableRow.push(
           <img
+            alt="profile"
             style={{ width: "50px" }}
             src={require("../../assets/img/small_logo.png")}
           />

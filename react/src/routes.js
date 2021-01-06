@@ -10,21 +10,22 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
+//import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import BubbleChart from "@material-ui/icons/BubbleChart";
-import Notifications from "@material-ui/icons/Notifications";
+import Search from "@material-ui/icons/Search";
+//import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 
 // core components/views for Admin layout
-import DashboardPage from "views/Dashboard/Dashboard.js";
+// import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import GiftList from "views/GiftList/GiftList.js";
 import Friends from "views/Friends/friends.js";
 import FriendRequests from "views/FriendRequests/friendRequests.js";
 import SearchFriends from "views/searchFriends/searchFriends.js";
-import NotificationsPage from "views/Notifications/Notifications.js";
+import FriendGiftList from "views/FriendGiftList/friendGiftList.js";
+//import NotificationsPage from "views/Notifications/Notifications.js";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 
 const dashboardRoutes = [
@@ -66,7 +67,7 @@ const dashboardRoutes = [
   {
     path: "/search",
     name: "Search Friends",
-    icon: BubbleChart,
+    icon: Search,
     component: SearchFriends,
     layout: "/admin"
   },

@@ -66,7 +66,7 @@ export default function LandingPage(props) {
               </Link>
               <Link to={"/login"} className={classes.button}>
                 <Button size="lg" round>
-                  Find a friend
+                  View your friends
                 </Button>
               </Link>
             </GridItem>
