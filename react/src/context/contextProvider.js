@@ -31,8 +31,6 @@ export default function AppProvider() {
     });
   }, []);
 
-  //useEffect(() => { console.log("contextProvidor second useEffect", userData) }, [userData])
-
   const logout = () => {
     setUserData({
       token: undefined,
